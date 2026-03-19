@@ -1,0 +1,11 @@
+# Screenshots
+*.png
+
+# Input files
+input/
+
+# Playwright
+.playwright-mcp/
+
+# OS
+.DS_Store

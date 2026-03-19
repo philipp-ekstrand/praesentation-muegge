@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MUEGGE Group — Website-Analyse & Optimierungskonzept | greyt.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #5B21B6;
+  --primary-light: #7C3AED;
+  --primary-lighter: #8B5CF6;
+  --primary-bg: #F5F3FF;
+  --primary-dim: rgba(91,33,182,0.08);
+  --cover-gradient: linear-gradient(135deg, #1E0A4A 0%, #3B1289 30%, #5B21B6 60%, #7C3AED 100%);
+
+  --white: #FFFFFF;
+  --text: #1A1A2E;
+  --text-sub: #6C757D;
+  --text-muted: #ADB5BD;
+  --bg: #FFFFFF;
+  --bg-card: #F8F9FA;
+  --border-card: #E9ECEF;
+  --border-light: #F1F3F5;
+
+  --success: #10B981;
+  --success-bg: #ECFDF5;
+  --danger: #EF4444;
+  --danger-bg: #FEF2F2;
+  --warning: #F59E0B;
+
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+  --transition: 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  --footer-h: 52px;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--font); color: var(--text); background: var(--bg); -webkit-font-smoothing: antialiased; }
+
+/* ===== SLIDES ===== */
+.deck { width: 100vw; height: 100vh; position: relative; overflow: hidden; }
+
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center;
+  padding: 48px 80px calc(var(--footer-h) + 16px);
+  opacity: 0; transform: translateX(50px);
+  transition: opacity var(--transition), transform var(--transition);
+  pointer-events: none; overflow-y: auto; overflow-x: hidden;
+}
+.slide.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
+.slide.prev   { opacity: 0; transform: translateX(-50px); }
+
+.slide--cover {
+  background: var(--cover-gradient);
+  padding: 0; justify-content: center; align-items: center; text-align: center;
+}
+
+/* ===== COVER SLIDE ===== */
+.cover-tagline {
+  font-size: clamp(11px, 1vw, 14px); font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.2em; color: rgba(255,255,255,0.55); margin-bottom: 24px;
+}
+.cover-headline {
+  font-size: clamp(42px, 5.5vw, 72px); font-weight: 900; color: var(--white);
+  text-transform: uppercase; line-height: 1.05; letter-spacing: -0.02em;
+  max-width: 1000px; margin-bottom: 32px;
+}
+.cover-logos {
+  display: flex; align-items: center; gap: 16px; margin-bottom: auto;
+}
+.cover-logo-pill {
+  background: rgba(255,255,255,0.12); border-radius: 12px; padding: 12px 24px;
+  font-size: 18px; font-weight: 800; color: var(--white); backdrop-filter: blur(8px);
+}
+.cover-logo-x { color: rgba(255,255,255,0.4); font-size: 18px; }
+.cover-start {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 500;
+}
+.cover-g {
+  position: absolute; bottom: 24px; right: 48px;
+  font-size: 36px; font-weight: 900; color: rgba(255,255,255,0.25);
+}
+
+/* ===== CONTENT LAYOUT ===== */
+.s-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 18px; border-radius: 20px; font-size: clamp(11px, 0.9vw, 13px);
+  font-weight: 600; border: 1.5px solid var(--primary-light); color: var(--primary);
+  margin-bottom: 12px;
+}
+.s-badge--filled {
+  background: var(--primary); color: var(--white); border-color: var(--primary);
+}
+.s-headline {
+  font-size: clamp(32px, 3.6vw, 52px); font-weight: 900; color: var(--text);
+  text-align: center; line-height: 1.12; letter-spacing: -0.025em; margin-bottom: 8px;
+}
+.s-headline .accent { color: var(--primary-light); }
+.s-subtitle {
+  font-size: clamp(14px, 1.2vw, 18px); font-weight: 400; color: var(--text-sub);
+  text-align: center; max-width: 700px; line-height: 1.5; margin-bottom: 32px;
+}
+.s-content { width: 100%; max-width: 1120px; flex: 1; display: flex; flex-direction: column; }
+
+/* ===== FOOTER BAR ===== */
+.footer-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; height: var(--footer-h);
+  display: flex; align-items: center; padding: 0 48px; background: var(--white);
+  border-top: 1px solid var(--border-light); z-index: 90; gap: 16px;
+}
+.footer-bar.hidden { display: none; }
+.fb-counter { font-size: 13px; font-weight: 600; color: var(--text-sub); min-width: 44px; }
+.fb-progress-wrap {
+  display: flex; align-items: center; gap: 10px; flex: 1; max-width: 900px;
+}
+.fb-progress-label { font-size: 12px; font-weight: 500; color: var(--text-muted); min-width: 38px; }
+.fb-progress-track {
+  flex: 1; height: 4px; background: var(--border-card); border-radius: 2px; overflow: hidden;
+}
+.fb-progress-fill {
+  height: 100%; background: var(--primary); border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.fb-spacer { flex: 1; }
+.fb-hint { font-size: 12px; color: var(--text-muted); font-weight: 400; }
+.fb-logo { font-size: 22px; font-weight: 900; color: var(--text); letter-spacing: -0.03em; margin-left: 24px; }
+
+/* ===== NAV ARROWS ===== */
+.nav-arrow {
+  position: fixed; top: 50%; transform: translateY(-50%); z-index: 95;
+  width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--border-card);
+  background: var(--white); display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-sub); font-size: 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: opacity 0.2s;
+}
+.nav-arrow:hover { background: var(--bg-card); }
+.nav-arrow--left  { left: 12px; }
+.nav-arrow--right { right: 12px; }
+.nav-arrow.disabled { opacity: 0.25; pointer-events: none; }
+
+/* ===== CARDS ===== */
+.cards-row { display: flex; gap: 16px; width: 100%; }
+.metric-card {
+  flex: 1; background: var(--bg-card); border: 1px solid var(--border-card);
+  border-radius: 16px; padding: 28px 16px; text-align: center;
+}
+.metric-val { font-size: clamp(28px, 3vw, 44px); font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 6px; }
+.metric-label { font-size: clamp(11px, 0.85vw, 13px); font-weight: 500; color: var(--text-sub); }
+
+.card-clean {
+  flex: 1; background: var(--white); border: 1px solid var(--border-card);
+  border-radius: 16px; padding: 28px 24px; display: flex; flex-direction: column; text-align: center;
+}
+.card-icon-circle {
+  width: 52px; height: 52px; border-radius: 14px; background: var(--primary-dim);
+  display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;
+}
+.card-icon-circle svg { width: 24px; height: 24px; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.card-clean-title { font-size: clamp(14px, 1.2vw, 17px); font-weight: 700; color: var(--primary); margin-bottom: 4px; }
+.card-clean-sub { font-size: clamp(12px, 1vw, 15px); font-weight: 600; color: var(--text); margin-bottom: 6px; }
+.card-clean-desc { font-size: clamp(11px, 0.85vw, 13px); color: var(--text-sub); line-height: 1.5; }
+
+/* Numbered card */
+.ncard { flex: 1; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px; padding: 24px 20px; }
+.ncard-num { font-size: clamp(28px, 2.5vw, 40px); font-weight: 300; color: var(--primary-lighter); margin-bottom: 8px; }
+.ncard-title { font-size: clamp(13px, 1.05vw, 15px); font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.ncard-desc { font-size: clamp(11px, 0.85vw, 13px); color: var(--text-sub); line-height: 1.5; }
+
+/* ===== TABLE ===== */
+table.cmp { width: 100%; border-collapse: collapse; font-size: clamp(12px, 1vw, 15px); }
+table.cmp thead th { text-align: left; padding: 12px 16px; font-weight: 700; border-bottom: 2px solid var(--primary); color: var(--text); }
+table.cmp thead th:first-child { width: 38%; }
+table.cmp tbody td { padding: 11px 16px; border-bottom: 1px solid var(--border-card); }
+table.cmp tbody tr:nth-child(even) { background: var(--bg-card); }
+.t-yes { color: var(--success); font-weight: 700; }
+.t-no  { color: var(--danger);  font-weight: 700; }
+.t-warn { color: var(--warning); font-weight: 700; }
+
+/* KPI Table */
+table.kpi { width: 100%; border-collapse: collapse; font-size: clamp(13px, 1.1vw, 16px); }
+table.kpi thead th { text-align: center; padding: 14px 16px; font-weight: 700; color: var(--white); background: var(--primary); }
+table.kpi thead th:first-child { text-align: left; border-radius: 12px 0 0 0; }
+table.kpi thead th:last-child  { border-radius: 0 12px 0 0; }
+table.kpi tbody td { padding: 13px 16px; text-align: center; border-bottom: 1px solid var(--border-card); }
+table.kpi tbody td:first-child { text-align: left; font-weight: 600; }
+table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
+.kpi-now  { color: var(--danger);  font-weight: 700; }
+.kpi-6m   { color: var(--primary); font-weight: 700; }
+.kpi-12m  { color: var(--success); font-weight: 700; }
+
+/* ===== TWO-COL ===== */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; width: 100%; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; width: 100%; }
+
+.panel { border-radius: 16px; padding: 28px 24px; }
+.panel--green { background: var(--success-bg); border: 1px solid #A7F3D0; }
+.panel--amber { background: #FFFBEB; border: 1px solid #FCD34D; }
+.panel--red   { background: var(--danger-bg); border: 1px solid #FCA5A5; }
+.panel--gray  { background: var(--bg-card); border: 1px solid var(--border-card); }
+.panel-head { font-size: clamp(14px, 1.2vw, 17px); font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+.panel-dot { width: 10px; height: 10px; border-radius: 50%; }
+.panel ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.panel li { font-size: clamp(12px, 0.95vw, 14px); line-height: 1.5; padding-left: 18px; position: relative; }
+.panel li::before { content:''; position: absolute; left: 0; top: 7px; width: 7px; height: 7px; border-radius: 2px; }
+.panel--green li::before { background: var(--success); }
+.panel--amber li::before { background: var(--warning); }
+.panel--red   li::before { background: var(--danger); }
+.panel--gray  li::before { background: var(--text-muted); }
+
+/* Detail column */
+.dcol { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px; padding: 24px 20px; }
+.dcol-num { font-size: clamp(32px, 3vw, 48px); font-weight: 300; color: var(--primary-lighter); line-height: 1; margin-bottom: 2px; }
+.dcol-title { font-size: clamp(15px, 1.3vw, 19px); font-weight: 800; margin-bottom: 14px; }
+.dcol ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.dcol li { font-size: clamp(11px, 0.9vw, 14px); line-height: 1.5; padding-left: 16px; position: relative; }
+.dcol li::before { content:''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); }
+.dcol li strong { font-weight: 700; color: var(--primary); }
+
+/* ===== TIMELINE ===== */
+.timeline { display: flex; gap: 0; width: 100%; flex: 1; }
+.tl-phase { flex: 1; padding: 0 20px; position: relative; }
+.tl-phase:not(:last-child)::after { content:''; position: absolute; right: 0; top: 8%; height: 84%; width: 1px; background: var(--border-card); }
+.tl-bar { height: 6px; border-radius: 3px; margin-bottom: 18px; background: var(--primary-lighter); }
+.tl-phase:nth-child(1) .tl-bar { background: var(--primary); }
+.tl-phase:nth-child(2) .tl-bar { background: var(--primary-light); }
+.tl-label { font-size: 11px; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+.tl-title { font-size: clamp(16px, 1.4vw, 21px); font-weight: 800; margin-bottom: 2px; }
+.tl-dur { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; font-weight: 500; }
+.tl-items { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+.tl-items li { font-size: clamp(11px, 0.85vw, 13px); color: var(--text-sub); padding-left: 14px; position: relative; line-height: 1.45; }
+.tl-items li::before { content:''; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--primary-lighter); }
+
+/* ===== QUESTIONS ===== */
+.q-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+.q-block { display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; border-left: 4px solid var(--primary); }
+.q-num { font-size: clamp(20px, 2vw, 28px); font-weight: 800; color: var(--primary); min-width: 32px; }
+.q-text { font-size: clamp(14px, 1.2vw, 18px); font-weight: 600; color: var(--text); }
+
+/* ===== STEPS (Vertical Timeline like PROCME) ===== */
+.steps-vt { display: flex; flex-direction: column; gap: 0; width: 100%; max-width: 800px; }
+.step-row { display: flex; align-items: flex-start; gap: 20px; position: relative; padding-bottom: 28px; }
+.step-row:last-child { padding-bottom: 0; }
+.step-rail { display: flex; flex-direction: column; align-items: center; }
+.step-circle { width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: var(--white); font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 2; }
+.step-line { width: 2px; flex: 1; background: var(--border-card); min-height: 20px; }
+.step-body { padding-top: 8px; }
+.step-title { font-size: clamp(15px, 1.3vw, 18px); font-weight: 700; color: var(--text); }
+.step-desc { font-size: clamp(12px, 1vw, 14px); color: var(--text-sub); margin-top: 2px; }
+
+/* ===== BULLET LIST ===== */
+.blist { list-style: none; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.blist li { font-size: clamp(13px, 1.05vw, 15px); line-height: 1.55; padding-left: 20px; position: relative; }
+.blist li::before { content:''; position: absolute; left: 0; top: 9px; width: 7px; height: 7px; border-radius: 2px; background: var(--primary); }
+
+/* ===== FAZIT ===== */
+.fazit { background: var(--primary-bg); border: 1px solid #DDD6FE; border-radius: 12px; padding: 16px 24px; width: 100%; margin-top: 14px; text-align: center; }
+.fazit p { font-size: clamp(12px, 1vw, 15px); color: var(--text); }
+.fazit strong { color: var(--primary); }
+
+/* ===== CONTACT ===== */
+.contact-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px; padding: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.contact-brand { font-size: 28px; font-weight: 800; color: var(--text); letter-spacing: -0.03em; margin-bottom: 12px; }
+.contact-divider { width: 60px; height: 1px; background: var(--border-card); margin: 4px 0 12px; }
+.contact-name { font-size: 16px; font-weight: 600; color: var(--text); }
+.contact-email { font-size: 14px; color: var(--primary); font-weight: 500; }
+.contact-phone { font-size: 14px; color: var(--text-sub); }
+
+/* Side-by-side layout */
+.split-55-40 { display: grid; grid-template-columns: 55% 40%; gap: 5%; width: 100%; align-items: start; }
+
+.hint { font-size: clamp(11px, 0.85vw, 13px); color: var(--text-muted); font-style: italic; margin-top: 10px; }
+
+/* ===== FORMULA ROW (Value Prop) ===== */
+.formula-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
+.formula-chip { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 999px; border: 1.5px solid var(--border-card); font-size: clamp(14px, 1.2vw, 17px); font-weight: 600; color: var(--text); background: var(--white); }
+.formula-chip--filled { background: var(--primary); color: var(--white); border-color: var(--primary); box-shadow: 0 4px 16px rgba(91,33,182,0.2); }
+.formula-op { font-size: 20px; font-weight: 300; color: var(--text-muted); }
+
+/* ===== AGENDA GRID ===== */
+.agenda-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; width: 100%; }
+
+/* ===== MODULE GRID ===== */
+.mod-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 1fr); gap: 14px; width: 100%; flex: 1; }
+
+/* ===== ENTRANCE ANIMATIONS (B1) ===== */
+@keyframes slide-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes slide-fade-scale {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+[data-anim] { opacity: 0; }
+.slide.active [data-anim] {
+  animation: slide-fade-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: var(--d, 0s);
+}
+.slide.active [data-anim="scale"] {
+  animation-name: slide-fade-scale;
+}
+
+/* ===== ENHANCED CARD SHADOWS (B2) ===== */
+.metric-card {
+  box-shadow: 0 4px 16px rgba(91,33,182,0.06);
+  border-top: 3px solid var(--primary-lighter);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-clean, .ncard, .dcol, .q-block {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ===== GRADIENT TEXT (B3) ===== */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== COVER TEXTURE (B4) ===== */
+.slide--cover::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+/* ===== GLASS MORPHISM — VISION 2 ONLY (B5) ===== */
+.mod-grid .card-clean {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(91,33,182,0.08);
+  box-shadow: 0 4px 20px rgba(91,33,182,0.06);
+}
+
+/* ===== PROGRESS BAR GLOW (B7) ===== */
+.fb-progress-fill {
+  background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+  box-shadow: 0 0 8px rgba(91,33,182,0.3);
+}
+
+/* ===== MICRO-INTERACTIONS (B8) ===== */
+@media (hover: hover) {
+  .metric-card:hover, .card-clean:hover, .ncard:hover, .dcol:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(91,33,182,0.10);
+  }
+  .q-block:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(91,33,182,0.08);
+  }
+  .nav-arrow:hover {
+    transform: translateY(-50%) scale(1.05);
+  }
+  .formula-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  [data-anim] { opacity: 1 !important; animation: none !important; }
+  .slide { transition: opacity 0.1s !important; transform: none !important; }
+  .slide.active { transform: none !important; }
+  .slide.prev { transform: none !important; }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  html, body { overflow: visible; height: auto; }
+  .deck { height: auto; overflow: visible; }
+  .slide { position: relative; opacity: 1 !important; transform: none !important; pointer-events: auto; page-break-after: always; min-height: 100vh; }
+  [data-anim] { opacity: 1 !important; animation: none !important; }
+  .footer-bar, .nav-arrow, .cover-start { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- === SLIDE 1: COVER === -->
+  <div class="slide slide--cover active" data-slide="0">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+      <div class="cover-tagline">greyt ideas today &mdash; greyt impact tomorrow</div>
+      <div class="cover-headline">Website-Analyse &amp;<br>Optimierungskonzept</div>
+      <div class="cover-logos">
+        <div class="cover-logo-pill">MUEGGE Group</div>
+        <div class="cover-logo-x">&times;</div>
+        <div class="cover-logo-pill">greyt.</div>
+      </div>
+    </div>
+    <div class="cover-start">Klicken zum Starten</div>
+    <div class="cover-g">g</div>
+  </div>
+
+  <!-- === SLIDE 2: VALUE PROPOSITION === -->
+  <div class="slide" data-slide="1">
+    <div class="s-badge" data-anim>Unser Ziel f&uuml;r MUEGGE</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Ihre Website zum<br><span class="accent">Vertriebstool machen</span><br>das 24/7 Leads liefert</div>
+    <div class="formula-row" data-anim style="--d:0.25s">
+      <div class="formula-chip">&#128269; Sichtbarkeit</div>
+      <div class="formula-op">+</div>
+      <div class="formula-chip">&#127919; Conversion</div>
+      <div class="formula-op">=</div>
+      <div class="formula-chip formula-chip--filled">&#128200; Wachstum</div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 3: AGENDA === -->
+  <div class="slide" data-slide="2">
+    <div class="s-badge" data-anim>Workshop &middot; M&auml;rz 2026</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Die <span class="accent">Leitplanken</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Unser Fahrplan f&uuml;r heute</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="agenda-grid">
+        <div class="card-clean" data-anim="scale" style="--d:0.2s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div class="card-clean-title">Wo?</div>
+          <div class="card-clean-sub">Status quo &amp; Benchmark</div>
+          <div class="card-clean-desc">Wo steht muegge-group.com heute im Vergleich zum Wettbewerb?</div>
+        </div>
+        <div class="card-clean" data-anim="scale" style="--d:0.35s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+          <div class="card-clean-title">Wohin?</div>
+          <div class="card-clean-sub">Zwei Visionen</div>
+          <div class="card-clean-desc">Optimierung des Bestehenden oder die Website als digitaler Vertriebsmitarbeiter?</div>
+        </div>
+        <div class="card-clean" data-anim="scale" style="--d:0.5s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="card-clean-title">Wie?</div>
+          <div class="card-clean-sub">Roadmap &amp; Diskussion</div>
+          <div class="card-clean-desc">Priorisierte Ma&szlig;nahmen, Zeitrahmen und offene Fragen f&uuml;r den Workshop.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 4: STATUS QUO === -->
+  <div class="slide" data-slide="3">
+    <div class="s-badge" data-anim>Status Quo</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Erste <span class="accent">Erkenntnisse</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Status Quo &middot; muegge-group.com</div>
+    <div class="s-content">
+      <div class="cards-row" data-anim style="margin-bottom:20px;--d:0.2s">
+        <div class="metric-card"><div class="metric-val" style="color:var(--danger)">~200</div><div class="metric-label">Unique Visitors / Mo.</div></div>
+        <div class="metric-card"><div class="metric-val" style="color:var(--danger)">0</div><div class="metric-label">Website-Leads / Mo.</div></div>
+        <div class="metric-card"><div class="metric-val">59%</div><div class="metric-label">via Suchmaschine</div></div>
+        <div class="metric-card"><div class="metric-val">6</div><div class="metric-label">Sprachen, manuell</div></div>
+      </div>
+      <div class="three-col">
+        <div class="panel panel--green" data-anim="scale" style="--d:0.3s">
+          <div class="panel-head"><span class="panel-dot" style="background:var(--success)"></span> Das ist vorhanden</div>
+          <ul>
+            <li>59% Search-Traffic zeigt SEO-Potenzial</li>
+            <li>2% AI Assist Traffic &mdash; Tendenz steigend</li>
+            <li>Starke Produktkompetenz und 40 Jahre Erfahrung</li>
+          </ul>
+        </div>
+        <div class="panel panel--amber" data-anim="scale" style="--d:0.4s">
+          <div class="panel-head"><span class="panel-dot" style="background:var(--warning)"></span> Optimierungspotenzial</div>
+          <ul>
+            <li>Off-Canvas-Navigation versteckt Seitenstruktur</li>
+            <li>Kontaktformular: 3&ndash;4 Klicks bis zur Anfrage</li>
+            <li>Keine Branchen- oder Applikationsseiten</li>
+            <li>Produktseiten ohne Fotos und Beschreibungen</li>
+          </ul>
+        </div>
+        <div class="panel panel--red" data-anim="scale" style="--d:0.5s">
+          <div class="panel-head"><span class="panel-dot" style="background:var(--danger)"></span> Kritische L&uuml;cken</div>
+          <ul>
+            <li>0 Website-Leads pro Monat</li>
+            <li>Kein Conversion-Tracking</li>
+            <li>USP Nr.&thinsp;1 (After-Sales) hat keine eigene Seite</li>
+            <li>Mehrsprachigkeit bei 0,5 Stelle nicht tragbar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 5: BENCHMARK === -->
+  <div class="slide" data-slide="4">
+    <div class="s-badge--filled s-badge" data-anim>Sairem von MUEGGE selbst als Benchmark benannt</div>
+    <div class="s-headline" data-anim style="--d:0.1s">MUEGGE vs. <span class="accent">Sairem</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Vergleich der wichtigsten Website-Features</div>
+    <div class="s-content" style="justify-content:center;">
+      <table class="cmp" data-anim style="--d:0.25s">
+        <thead><tr><th>Feature</th><th>MUEGGE</th><th>Sairem</th></tr></thead>
+        <tbody>
+          <tr><td>Branchen- / Application Pages</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003;</td></tr>
+          <tr><td>Produktfinder / Konfigurator</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003;</td></tr>
+          <tr><td>Case Studies</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003;</td></tr>
+          <tr><td>Download-Center</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003;</td></tr>
+          <tr><td>After-Sales-Seite</td><td class="t-no">&#10005; (trotz USP Nr.&thinsp;1)</td><td class="t-yes">&#10003; + Ticketsystem</td></tr>
+          <tr><td>Newsletter</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003;</td></tr>
+          <tr><td>Mega-Men&uuml;</td><td class="t-no">&#10005; Off-Canvas</td><td class="t-yes">&#10003; Sichtbar</td></tr>
+          <tr><td>Messe-Kalender</td><td class="t-warn">&#9888; Nur Fotos</td><td class="t-yes">&#10003; Strukturiert</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === SLIDE 6: 5 HEBEL === -->
+  <div class="slide" data-slide="5">
+    <div class="s-badge" data-anim>Kernprobleme</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Die 5 gr&ouml;&szlig;ten <span class="accent">Hebel</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Hier liegt das gr&ouml;&szlig;te Potenzial f&uuml;r Ihre Website</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="cards-row">
+        <div class="ncard" data-anim="scale" style="--d:0.2s"><div class="ncard-num">1</div><div class="ncard-title">Kein Conversion-Funnel</div><div class="ncard-desc">Popup + reCAPTCHA + Consent blockieren jede Anfrage. 3&ndash;4 Klicks bis zum Formular.</div></div>
+        <div class="ncard" data-anim="scale" style="--d:0.3s"><div class="ncard-num">2</div><div class="ncard-title">Off-Canvas statt Mega-Men&uuml;</div><div class="ncard-desc">Branchen und Produkte komplett versteckt. Kein Navigationspunkt sichtbar.</div></div>
+        <div class="ncard" data-anim="scale" style="--d:0.4s"><div class="ncard-num">3</div><div class="ncard-title">Keine Branchen-Landing-Pages</div><div class="ncard-desc">12+ Branchen, 0 dedizierte Seiten. Kein SEO-Futter.</div></div>
+        <div class="ncard" data-anim="scale" style="--d:0.5s"><div class="ncard-num">4</div><div class="ncard-title">6x manuell &uuml;bersetzen</div><div class="ncard-desc">WPML bei 0,5 Marketing-Stelle nicht tragbar.</div></div>
+        <div class="ncard" data-anim="scale" style="--d:0.6s"><div class="ncard-num">5</div><div class="ncard-title">USPs unsichtbar</div><div class="ncard-desc">After-Sales Service = USP Nr.&thinsp;1, hat keine eigene Seite.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 7: VISION 1 === -->
+  <div class="slide" data-slide="6">
+    <div class="s-badge" data-anim>Vision 1</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Bestehende Website <span class="accent">aufwerten</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">WordPress + Elementor bleibt. Fokus auf Content und Conversion.</div>
+    <div class="s-content">
+      <div class="two-col" style="flex:1;">
+        <div class="panel panel--green" data-anim="scale" style="--d:0.2s">
+          <div class="panel-head"><span class="panel-dot" style="background:var(--success)"></span> Was sich &auml;ndert</div>
+          <ul>
+            <li>Kontaktformular direkt eingebettet, Turnstile statt reCAPTCHA</li>
+            <li>8&ndash;10 neue Branchen-Landing-Pages</li>
+            <li>Blog-Content: 2 Artikel / Monat</li>
+            <li>GA4 + Server-Side GTM</li>
+            <li>Redirects bereinigen, USP-Platzierung</li>
+            <li>Produktseiten mit echten Fotos &amp; Beschreibungen</li>
+          </ul>
+        </div>
+        <div class="panel panel--gray" data-anim="scale" style="--d:0.35s">
+          <div class="panel-head"><span class="panel-dot" style="background:var(--danger)"></span> Was sich NICHT &auml;ndert</div>
+          <ul>
+            <li>Off-Canvas-Navigation bleibt</li>
+            <li>Mehrsprachigkeit bleibt manuell (WPML)</li>
+            <li>Produkt-Import bleibt CSV</li>
+            <li>Keine ERP-Integration</li>
+            <li>Keine Vertriebsautomation</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fazit" data-anim style="--d:0.45s"><p><strong>Fazit:</strong> Mehr Traffic und Sichtbarkeit, erste Leads. Aber die Website bleibt informierend &mdash; kein Vertriebstool.</p></div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 8: VISION 2 OVERVIEW === -->
+  <div class="slide" data-slide="7">
+    <div class="s-badge--filled s-badge" data-anim>Vision 2 &mdash; Empfohlen</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Die Website als <span class="accent">digitaler Vertriebsmitarbeiter</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Sechs Module f&uuml;r Ihren digitalen Vertriebserfolg</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="mod-grid">
+        <div class="card-clean" data-anim="scale" style="--d:0.2s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <div class="card-clean-title">Intelligente Nutzerf&uuml;hrung</div>
+          <div class="card-clean-desc">Mega-Men&uuml;, Branchen-Entry-Points, dynamische Inhalte</div>
+        </div>
+        <div class="card-clean" data-anim="scale" style="--d:0.3s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+          <div class="card-clean-title">Produktfinder &amp; Konfigurator</div>
+          <div class="card-clean-desc">Gef&uuml;hrte Auswahl, Self-Service Anfrage, Live-Daten aus ERP</div>
+        </div>
+        <div class="card-clean" data-anim="scale" style="--d:0.4s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="card-clean-title">KI-Besuchererkennung</div>
+          <div class="card-clean-desc">B2B-Firmenidentifikation, Intent-Scoring, CRM-Integration</div>
+        </div>
+        <div class="card-clean" data-anim="scale" style="--d:0.35s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <div class="card-clean-title">Content-Engine &amp; Nurturing</div>
+          <div class="card-clean-desc">Download-Center, Gated Content, Newsletter-Automation</div>
+        </div>
+        <div class="card-clean" data-anim="scale" style="--d:0.45s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <div class="card-clean-title">Messe-Integration</div>
+          <div class="card-clean-desc">Landing Page pro Messe, QR-Tracking, Post-Messe-Nurturing</div>
+        </div>
+        <div class="card-clean" data-anim="scale" style="--d:0.55s">
+          <div class="card-icon-circle"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="card-clean-title">Technisches Fundament</div>
+          <div class="card-clean-desc">Sanity + Next.js, &Uuml;bersetzungs-Automation, ERP-Sync</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 9: MODULE 1-3 === -->
+  <div class="slide" data-slide="8">
+    <div class="s-badge" data-anim>Nordstern &mdash; Module im Detail</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Module <span class="accent">1&ndash;3</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Nutzerf&uuml;hrung, Produktfinder &amp; Lead Intelligence</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="three-col">
+        <div class="dcol" data-anim="scale" style="--d:0.2s"><div class="dcol-num">1</div><div class="dcol-title">Nutzerf&uuml;hrung</div>
+          <ul><li><strong>Mega-Men&uuml;</strong> mit branchenorientierter Navigation</li><li><strong>Branchenspezifische Entry Points</strong> auf Startseite</li><li><strong>Dynamische Inhalte</strong> f&uuml;r wiederkehrende Besucher</li></ul>
+        </div>
+        <div class="dcol" data-anim="scale" style="--d:0.35s"><div class="dcol-num">2</div><div class="dcol-title">Produktfinder</div>
+          <ul><li><strong>3&ndash;5 Fragen</strong> &rarr; passende Produktempfehlung</li><li><strong>Produkt-Detailseiten</strong> mit Specs &amp; Datenblatt &mdash; live aus MyFactory</li><li><strong>Self-Service Angebotsanfrage</strong> direkt aus Konfigurator ins CRM</li></ul>
+        </div>
+        <div class="dcol" data-anim="scale" style="--d:0.5s"><div class="dcol-num">3</div><div class="dcol-title">Lead Intelligence</div>
+          <ul><li><strong>B2B-Besuchererkennung</strong> (SalesViewer/Dealfront)</li><li><strong>Intent-basiertes Lead-Scoring</strong> nach Seitenverhalten</li><li><strong>Automatische CRM-Integration</strong> mit vollem Kontext</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 10: MODULE 4-6 === -->
+  <div class="slide" data-slide="9">
+    <div class="s-badge" data-anim>Nordstern &mdash; Module im Detail</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Module <span class="accent">4&ndash;6</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Content-Engine, Messe-Integration &amp; Tech-Fundament</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="three-col">
+        <div class="dcol" data-anim="scale" style="--d:0.2s"><div class="dcol-num">4</div><div class="dcol-title">Content-Engine</div>
+          <ul><li><strong>Download-Center:</strong> Datenbl&auml;tter frei, Premium-Whitepaper gegen E-Mail</li><li><strong>Newsletter-Automation:</strong> Segmentiert nach Branche</li><li><strong>Blog:</strong> 2+ Artikel/Monat, keyword-optimiert</li></ul>
+        </div>
+        <div class="dcol" data-anim="scale" style="--d:0.35s"><div class="dcol-num">5</div><div class="dcol-title">Messe-Integration</div>
+          <ul><li><strong>Dedizierte Landing Page</strong> pro Messe (9/Jahr)</li><li><strong>QR-Codes am Messestand</strong> &rarr; jeder Scan getrackt</li><li><strong>Post-Messe Follow-up:</strong> Website trackt Verhalten</li></ul>
+        </div>
+        <div class="dcol" data-anim="scale" style="--d:0.5s"><div class="dcol-num">6</div><div class="dcol-title">Tech-Fundament</div>
+          <ul><li><strong>Sanity CMS + Next.js</strong> (headless, performant)</li><li><strong>&Uuml;bersetzungs-Automation:</strong> 1x pflegen &rarr; 5x auto</li><li><strong>ERP-Echtzeit-Sync</strong> aus MyFactory</li><li><strong>AI-Discoverability:</strong> Schema.org, llms.txt, SSR</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 11: ROADMAP === -->
+  <div class="slide" data-slide="10">
+    <div class="s-badge" data-anim>Roadmap</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Priorisierte Umsetzung in <span class="accent">3 Phasen</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Phasen laufen teilweise parallel. Gesamtzeitraum ca. 4&ndash;6 Monate.</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="timeline" data-anim style="--d:0.25s">
+        <div class="tl-phase">
+          <div class="tl-bar"></div><div class="tl-label">Phase 1</div><div class="tl-title">Quick Wins</div><div class="tl-dur">2&ndash;4 Wochen</div>
+          <ul class="tl-items"><li>Kontaktformular einbetten, Popup eliminieren</li><li>reCAPTCHA &rarr; Cloudflare Turnstile</li><li>Legacy-URLs per 301-Redirect bereinigen</li><li>After-Sales-USP auf Startseite</li><li>GA4 + Server-Side GTM aufsetzen</li><li>Platzhalter-Bilder durch reale Fotos ersetzen</li></ul>
+        </div>
+        <div class="tl-phase">
+          <div class="tl-bar"></div><div class="tl-label">Phase 2</div><div class="tl-title">Konzept &amp; Content</div><div class="tl-dur">4&ndash;8 Wochen</div>
+          <ul class="tl-items"><li>Informationsarchitektur &amp; Sitemap</li><li>Mega-Men&uuml;-Struktur ausarbeiten</li><li>SEO-Keyword-Strategie pro Branche</li><li>8&ndash;10 Branchen-Landing-Pages texten</li><li>Blog-Produktion starten (2/Monat)</li><li>Erste Branchen-Seiten auf WordPress</li></ul>
+        </div>
+        <div class="tl-phase">
+          <div class="tl-bar"></div><div class="tl-label">Phase 3</div><div class="tl-title">Relaunch</div><div class="tl-dur">8&ndash;12 Wochen</div>
+          <ul class="tl-items"><li>Sanity CMS + Next.js aufsetzen</li><li>MyFactory ERP-API-Integration</li><li>Automatisierter &Uuml;bersetzungs-Workflow</li><li>Mega-Men&uuml;, Produktfinder, Download-Center</li><li>Schema.org, llms.txt, AI-Discoverability</li><li>Launch, Redirects, QA</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 12: ZIELWERTE === -->
+  <div class="slide" data-slide="11">
+    <div class="s-badge" data-anim>Messbare Ergebnisse</div>
+    <div class="s-headline" data-anim style="--d:0.1s"><span class="accent">Zielwerte</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Erwartete KPIs nach Umsetzung</div>
+    <div class="s-content" style="justify-content:center;">
+      <table class="kpi" data-anim style="--d:0.25s">
+        <thead><tr><th>KPI</th><th>Heute</th><th>6 Monate</th><th>12 Monate</th></tr></thead>
+        <tbody>
+          <tr><td>Unique Visitors / Monat</td><td class="kpi-now">~200</td><td class="kpi-6m">1.000+</td><td class="kpi-12m">2.500+</td></tr>
+          <tr><td>Website-Leads / Monat</td><td class="kpi-now">0</td><td class="kpi-6m">5&ndash;10</td><td class="kpi-12m">15&ndash;25</td></tr>
+          <tr><td>Verweildauer</td><td class="kpi-now">~1&ndash;2 Min</td><td class="kpi-6m">3+ Min</td><td class="kpi-12m">3+ Min</td></tr>
+          <tr><td>SEO Top-10 Keywords</td><td class="kpi-now">&mdash;</td><td class="kpi-6m">20+</td><td class="kpi-12m">50+</td></tr>
+          <tr><td>AI-Auffindbarkeit</td><td class="kpi-now">2% Traffic</td><td class="kpi-6m">Erw&auml;hnt</td><td class="kpi-12m">Konsistent genannt</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- === SLIDE 13: OFFENE FRAGEN === -->
+  <div class="slide" data-slide="12">
+    <div class="s-badge" data-anim>Workshop-Diskussion</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Offene <span class="accent">Fragen</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Top 5 Diskussionspunkte f&uuml;r heute</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="q-list">
+        <div class="q-block" data-anim style="--d:0.2s"><div class="q-num">1</div><div class="q-text">Relaunch oder Optimierung &mdash; wie weit wollen wir gehen?</div></div>
+        <div class="q-block" data-anim style="--d:0.3s"><div class="q-num">2</div><div class="q-text">Welche 3&ndash;5 Branchen priorisieren?</div></div>
+        <div class="q-block" data-anim style="--d:0.4s"><div class="q-num">3</div><div class="q-text">Welche Sprachen ab Launch kritisch?</div></div>
+        <div class="q-block" data-anim style="--d:0.5s"><div class="q-num">4</div><div class="q-text">Welche Referenz-Webseiten gefallen Ihnen?</div></div>
+        <div class="q-block" data-anim style="--d:0.6s"><div class="q-num">5</div><div class="q-text">Wie soll der Angebotsanfrage-Prozess auf der Website aussehen?</div></div>
+      </div>
+      <div class="hint">Weitere 9 Fragen im Handout</div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 14: NÄCHSTE SCHRITTE === -->
+  <div class="slide" data-slide="13">
+    <div class="s-badge" data-anim>Ausblick</div>
+    <div class="s-headline" data-anim style="--d:0.1s">N&auml;chste <span class="accent">Schritte</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Ihr Weg zur optimierten Website</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="split-55-40" data-anim style="--d:0.25s">
+        <div class="steps-vt">
+          <div class="step-row"><div class="step-rail"><div class="step-circle">1</div><div class="step-line"></div></div><div class="step-body"><div class="step-title">Offene Fragen heute kl&auml;ren</div><div class="step-desc">Priorisierung und strategische Ausrichtung festlegen</div></div></div>
+          <div class="step-row"><div class="step-rail"><div class="step-circle">2</div><div class="step-line"></div></div><div class="step-body"><div class="step-title">Greyt liefert Ergebnispr&auml;sentation</div><div class="step-desc">Konsolidierte Erkenntnisse und finales Konzept</div></div></div>
+          <div class="step-row"><div class="step-rail"><div class="step-circle">3</div><div class="step-line"></div></div><div class="step-body"><div class="step-title">Angebot mit priorisierter Roadmap</div><div class="step-desc">Transparente Kostenstruktur und Timeline</div></div></div>
+          <div class="step-row"><div class="step-rail"><div class="step-circle">4</div></div><div class="step-body"><div class="step-title">Kick-off Phase 1 &mdash; Quick Wins sofort starten</div><div class="step-desc">Sofort sichtbare Verbesserungen umsetzen</div></div></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-brand">greyt.</div>
+          <div class="contact-divider"></div>
+          <div class="contact-name">Johannes Lorenz</div>
+          <div class="contact-email">johannes.lorenz@greyt.de</div>
+          <div class="contact-phone">+49 1573 6994275</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER BAR -->
+<div class="footer-bar" id="footerBar">
+  <div class="fb-counter" id="fbCounter">1 / 14</div>
+  <div class="fb-progress-wrap">
+    <div class="fb-progress-label" id="fbLabel">1 / 14</div>
+    <div class="fb-progress-track"><div class="fb-progress-fill" id="fbFill" style="width:7.14%"></div></div>
+  </div>
+  <div class="fb-spacer"></div>
+  <div class="fb-hint">Pfeiltasten zur Navigation</div>
+  <div class="fb-logo">greyt.</div>
+</div>
+
+<!-- NAV ARROWS -->
+<div class="nav-arrow nav-arrow--left disabled" id="navLeft">&#8249;</div>
+<div class="nav-arrow nav-arrow--right" id="navRight">&#8250;</div>
+
+<script>
+(function(){
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let cur = 0;
+  const fbCounter = document.getElementById('fbCounter');
+  const fbLabel = document.getElementById('fbLabel');
+  const fbFill = document.getElementById('fbFill');
+  const footerBar = document.getElementById('footerBar');
+  const navL = document.getElementById('navLeft');
+  const navR = document.getElementById('navRight');
+
+  function update() {
+    const n = cur + 1;
+    fbCounter.textContent = n + ' / ' + total;
+    fbLabel.textContent = n + ' / ' + total;
+    fbFill.style.width = (n / total * 100) + '%';
+    navL.classList.toggle('disabled', cur === 0);
+    navR.classList.toggle('disabled', cur === total - 1);
+    // Hide footer on cover slide
+    footerBar.classList.toggle('hidden', cur === 0);
+    navL.style.display = cur === 0 ? 'none' : '';
+    navR.style.display = cur === 0 ? 'none' : '';
+  }
+
+  function resetAnims(slide) {
+    slide.querySelectorAll('[data-anim]').forEach(function(el) {
+      el.style.animation = 'none';
+      el.offsetHeight;
+      el.style.animation = '';
+    });
+  }
+
+  function goTo(i) {
+    if (i < 0 || i >= total || i === cur) return;
+    const dir = i > cur ? 1 : -1;
+    slides.forEach(function(s) { s.classList.remove('active','prev'); s.style.cssText = ''; });
+    slides[cur].classList.add('prev');
+    if (dir === -1) slides[cur].style.transform = 'translateX(50px)';
+    const ns = slides[i];
+    resetAnims(ns);
+    ns.style.transition = 'none';
+    ns.style.transform = dir === 1 ? 'translateX(50px)' : 'translateX(-50px)';
+    ns.style.opacity = '0';
+    ns.offsetHeight;
+    ns.style.cssText = '';
+    ns.classList.add('active');
+    cur = i;
+    update();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); goTo(cur+1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(cur-1); }
+    else if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+    else if (e.key === 'End') { e.preventDefault(); goTo(total-1); }
+  });
+
+  navL.addEventListener('click', function(e){ e.stopPropagation(); goTo(cur-1); });
+  navR.addEventListener('click', function(e){ e.stopPropagation(); goTo(cur+1); });
+
+  // Cover: click anywhere to start
+  slides[0].addEventListener('click', function(){ goTo(1); });
+
+  // Touch
+  let tx = 0;
+  document.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; });
+  document.addEventListener('touchend', function(e){
+    const d = tx - e.changedTouches[0].clientX;
+    if (Math.abs(d) > 50) { d > 0 ? goTo(cur+1) : goTo(cur-1); }
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>

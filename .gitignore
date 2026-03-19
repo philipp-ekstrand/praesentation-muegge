@@ -1,7 +1,11 @@
-# Screenshots
+# Screenshots (all development/reference/verification screenshots)
 *.png
+*.jpeg
+screenshots/
+ref-screenshots/
+muegge-website/
 
-# Input files
+# Input files (source documents)
 input/
 
 # Playwright

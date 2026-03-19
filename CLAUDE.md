@@ -13,16 +13,27 @@ Single-File HTML-Prasentation (14 Slides), die auf dem Design-Level der PROCME-R
 | `muegge-workshop.html` | **Die Präsentation** — Single HTML file mit allem inline |
 | `input/2026_03_16 Greyt Vorlage.pdf` | Greyt PowerPoint-Vorlage (PDF) — initialer Style-Referenz |
 | `input/MUEGGE_Website_Analyse_Greyt.docx` | Vollständige Website-Analyse — inhaltliche Quelle für alle Slides |
-| `PROGRESS.md` | Fortschritt, erledigte Tasks, offene Punkte |
-| `STYLEGUIDE.md` | Design-Entscheidungen, Farben, Typografie, Patterns |
-| `SLIDES.md` | Slide-für-Slide Dokumentation mit Inhalten und Layout |
+| `architecture/PROGRESS.md` | Fortschritt, erledigte Tasks, offene Punkte |
+| `architecture/STYLEGUIDE.md` | Design-Entscheidungen, Farben, Typografie, Patterns |
+| `architecture/SLIDES.md` | Slide-für-Slide Dokumentation mit Inhalten und Layout |
+
+## Ordnerstruktur
+
+| Ordner | Inhalt |
+|--------|--------|
+| `architecture/` | Projekt-Dokumentation (Progress, Styleguide, Slides-Doku) |
+| `input/` | Quelldokumente (Greyt-Vorlage, MUEGGE-Analyse DOCX) |
+| `ref-screenshots/` | PROCME-Referenz Design-Screenshots |
+| `screenshots/v1..v5/` | Entwicklungs-Screenshots nach Version |
+| `muegge-website/` | MUEGGE-Website Screenshots (Bilder-Recherche) |
+| `.playwright-mcp/` | Playwright MCP temporäre Dateien |
 
 ## Design-Referenz
-Die Präsentation orientiert sich am Design von **https://procme.greyt-webseiten.com/** (Greyt's eigene Sales-Präsentation für PROCME). Screenshots der Referenz liegen als `ref-slide*.png` im Projektordner.
+Die Präsentation orientiert sich am Design von **https://procme.greyt-webseiten.com/** (Greyt's eigene Sales-Präsentation für PROCME). Screenshots der Referenz liegen in `ref-screenshots/`.
 
 ## Technische Eckdaten
 - **Font:** Inter (Google Fonts) + system-ui Fallback
-- **Farbe:** Greyt-Purple (#5B21B6 / #7C3AED) — NICHT Blue wie in der PROCME-Referenz
+- **Farbe:** MUEGGE Dark Navy (#0A1523) + Cyan (#00D4FF) — seit v4 auf MUEGGE Corporate Design umgestellt
 - **16:9** optimiert für Beamer (1280x720 / 1920x1080)
 - **Navigation:** Pfeiltasten, Nav-Arrow-Buttons, Touch, Klick auf Cover zum Starten
 - **Footer-Bar:** Slide-Counter + Progress-Bar + "Pfeiltasten zur Navigation" + "greyt." Logo

@@ -18,7 +18,7 @@
 
   --white: #FFFFFF;
   --text: #0A1523;
-  --text-sub: #949898;
+  --text-sub: #4A5568;
   --text-muted: #6B7280;
   --bg: #FFFFFF;
   --bg-card: #F4F6F8;
@@ -71,7 +71,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
   max-width: 1000px; margin-bottom: 32px;
 }
 .cover-logos {
-  display: flex; align-items: center; gap: 16px; margin-bottom: auto;
+  display: flex; align-items: center; gap: 16px;
 }
 .cover-logo-pill {
   background: rgba(255,255,255,0.12); border-radius: 12px; padding: 12px 24px;
@@ -346,6 +346,27 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 .formula-chip--filled { background: var(--dark-bg); color: var(--primary); border-color: var(--dark-bg); box-shadow: 0 4px 16px rgba(0,212,255,0.2); }
 .formula-op { font-size: 20px; font-weight: 300; color: var(--text-muted); }
 
+/* ===== CARD BACKGROUND IMAGES ===== */
+[data-img] .image-box__image { background-size: cover !important; background-position: center !important; }
+[data-img="muegge1"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.6), rgba(15,31,53,0.5)), url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-muegge-01.jpg) !important; }
+[data-img="muegge2"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.55), rgba(15,31,53,0.45)), url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-muegge-02-1024x683.jpg) !important; }
+[data-img="wafer"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.5), rgba(15,31,53,0.4)), url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-wafer-muegge-770x1024.jpg) !important; }
+[data-img="analytics"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="strategy"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="digital"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.65), rgba(15,31,53,0.55)), url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="ui"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="industry"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="globe"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="ai"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.65), rgba(15,31,53,0.55)), url(https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="content"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="conference"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.65), rgba(15,31,53,0.55)), url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="code"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.65), rgba(15,31,53,0.55)), url(https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="muegge-messe"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.55), rgba(15,31,53,0.45)), url(https://muegge-group.com/wp-content/uploads/2024/04/ICRC_Messerueckblick.jpg) !important; }
+[data-img="muegge-3d-gen"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.5), rgba(15,31,53,0.4)), url(https://muegge-group.com/wp-content/uploads/2024/03/Mikrowelle-3D-Rendering_MH6000S_Muegge_200219-1.png) !important; }
+[data-img="muegge-3d-plasma"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.5), rgba(15,31,53,0.4)), url(https://muegge-group.com/wp-content/uploads/2024/03/Plasma-System-3D-Rendering_MA1250D_Muegge_200219.png) !important; }
+[data-img="muegge-team"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.6), rgba(15,31,53,0.5)), url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-ausbildung-muegge.jpg) !important; }
+[data-img="muegge-hq"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.55), rgba(15,31,53,0.45)), url(https://muegge-group.com/wp-content/uploads/2024/03/global-vernetzt-lokal-erreichbar-muegge-reichelsheim.jpg) !important; }
+
 /* ===== ENTRANCE ANIMATIONS ===== */
 @keyframes slide-fade-up {
   from { opacity: 0; transform: translateY(24px); }
@@ -436,7 +457,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-subtitle" data-anim style="--d:0.15s">Unser Fahrplan f&uuml;r heute</div>
     <div class="s-content" style="justify-content:center;">
       <div class="grid-3">
-        <div class="image-box" data-anim="scale" style="--d:0.2s">
+        <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="muegge1">
           <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
@@ -445,7 +466,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__desc">Status quo &amp; Benchmark &mdash; Wo steht muegge-group.com heute im Vergleich zum Wettbewerb?</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.35s">
+        <div class="image-box" data-anim="scale" style="--d:0.35s" data-img="strategy">
           <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
@@ -454,7 +475,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__desc">Zwei Visionen &mdash; Optimierung des Bestehenden oder die Website als digitaler Vertriebsmitarbeiter?</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.5s">
+        <div class="image-box" data-anim="scale" style="--d:0.5s" data-img="digital">
           <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
@@ -552,22 +573,22 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-subtitle" data-anim style="--d:0.15s">Hier liegt das gr&ouml;&szlig;te Potenzial f&uuml;r Ihre Website</div>
     <div class="s-content" style="justify-content:center;">
       <div class="grid-3" style="margin-bottom:14px;">
-        <div class="image-box" data-anim="scale" style="--d:0.2s">
+        <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="analytics">
           <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><div class="image-box__image-num">01</div></div>
           <div class="image-box__content">
             <div class="image-box__title">Kein Conversion-Funnel</div>
             <div class="image-box__desc">Popup + reCAPTCHA + Consent blockieren jede Anfrage. 3&ndash;4 Klicks bis zum Kontaktformular.</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.3s">
-          <div class="image-box__image" style="background:linear-gradient(160deg,#0A1523,#1a2d45)"><svg class="image-box__image-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg><div class="image-box__image-num">02</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.3s" data-img="ui">
+          <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg><div class="image-box__image-num">02</div></div>
           <div class="image-box__content">
             <div class="image-box__title">Off-Canvas statt Mega-Men&uuml;</div>
             <div class="image-box__desc">Branchen und Produkte komplett versteckt. Kein Navigationspunkt auf Desktop sichtbar.</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.4s">
-          <div class="image-box__image" style="background:linear-gradient(200deg,#0A1523,#162842)"><svg class="image-box__image-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><div class="image-box__image-num">03</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.4s" data-img="muegge-team">
+          <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg><div class="image-box__image-num">03</div></div>
           <div class="image-box__content">
             <div class="image-box__title">Keine Branchen-Landing-Pages</div>
             <div class="image-box__desc">12+ Zielbranchen, 0 dedizierte Seiten. Kein SEO-Futter, keine Branchenrelevanz.</div>
@@ -575,15 +596,15 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
         </div>
       </div>
       <div class="grid-2 grid-center">
-        <div class="image-box" data-anim="scale" style="--d:0.5s">
-          <div class="image-box__image" style="background:linear-gradient(170deg,#0A1523,#1e3350)"><svg class="image-box__image-icon" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg><div class="image-box__image-num">04</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.5s" data-img="globe">
+          <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/></svg><div class="image-box__image-num">04</div></div>
           <div class="image-box__content">
             <div class="image-box__title">6x manuell &uuml;bersetzen</div>
             <div class="image-box__desc">WPML bei 0,5 Marketing-Stelle nicht tragbar. Jede &Auml;nderung muss 6-fach gepflegt werden.</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.6s">
-          <div class="image-box__image" style="background:linear-gradient(140deg,#0A1523,#122240)"><svg class="image-box__image-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div class="image-box__image-num">05</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.6s" data-img="muegge-hq">
+          <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div class="image-box__image-num">05</div></div>
           <div class="image-box__content">
             <div class="image-box__title">USPs unsichtbar</div>
             <div class="image-box__desc">After-Sales Service = USP Nr.&thinsp;1 von MUEGGE, hat aber keine eigene Seite auf der Website.</div>
@@ -644,48 +665,48 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-subtitle" data-anim style="--d:0.15s">Sechs Module f&uuml;r qualifizierte Leads rund um die Uhr</div>
     <div class="s-content" style="justify-content:center;">
       <div class="grid-3x2">
-        <div class="image-box--glass" data-anim="scale" style="--d:0.2s">
-          <div class="image-box__image" style="background:linear-gradient(135deg,#0A1523,#1a3050)"></div>
+        <div class="image-box--glass" data-anim="scale" style="--d:0.2s" data-img="muegge1">
+          <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
             <div class="image-box__title">Intelligente Nutzerf&uuml;hrung</div>
             <div class="image-box__desc">Mega-Men&uuml;, Branchen-Entry-Points, dynamische Inhalte</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.3s">
-          <div class="image-box__image" style="background:linear-gradient(160deg,#0A1523,#152d48)"></div>
+        <div class="image-box--glass" data-anim="scale" style="--d:0.3s" data-img="muegge-3d-gen">
+          <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
             <div class="image-box__title">Produktfinder &amp; Konfigurator</div>
             <div class="image-box__desc">Gef&uuml;hrte Auswahl, Self-Service Anfrage, Live-Daten aus ERP</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.4s">
-          <div class="image-box__image" style="background:linear-gradient(200deg,#0A1523,#1e3852)"></div>
+        <div class="image-box--glass" data-anim="scale" style="--d:0.4s" data-img="ai">
+          <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
             <div class="image-box__title">KI-Besuchererkennung</div>
             <div class="image-box__desc">B2B-Firmenidentifikation, Intent-Scoring, CRM-Integration</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.35s">
-          <div class="image-box__image" style="background:linear-gradient(170deg,#0A1523,#122a42)"></div>
+        <div class="image-box--glass" data-anim="scale" style="--d:0.35s" data-img="content">
+          <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
             <div class="image-box__title">Content-Engine &amp; Nurturing</div>
             <div class="image-box__desc">Download-Center, Gated Content, Newsletter-Automation</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.45s">
-          <div class="image-box__image" style="background:linear-gradient(145deg,#0A1523,#163048)"></div>
+        <div class="image-box--glass" data-anim="scale" style="--d:0.45s" data-img="muegge-messe">
+          <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
             <div class="image-box__title">Messe-Integration</div>
             <div class="image-box__desc">Landing Page pro Messe, QR-Tracking, Post-Messe-Nurturing</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.55s">
-          <div class="image-box__image" style="background:linear-gradient(190deg,#0A1523,#1a3555)"></div>
+        <div class="image-box--glass" data-anim="scale" style="--d:0.55s" data-img="muegge-3d-plasma">
+          <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <div class="image-box__title">Technisches Fundament</div>
@@ -703,8 +724,8 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-subtitle" data-anim style="--d:0.15s">Module 1&ndash;3: Nutzerf&uuml;hrung, Produktfinder &amp; Lead Intelligence</div>
     <div class="s-content" style="justify-content:center;">
       <div class="grid-3">
-        <div class="image-box" data-anim="scale" style="--d:0.2s">
-          <div class="image-box__image" style="background:linear-gradient(135deg,#0A1523,#153050)"><div class="image-box__image-num">M1</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="ui">
+          <div class="image-box__image"><div class="image-box__image-num">M1</div></div>
           <div class="image-box__content">
             <div class="image-box__badge">Modul 1</div>
             <div class="image-box__title">Intelligente Nutzerf&uuml;hrung</div>
@@ -716,8 +737,8 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__benefit">Vorteil: Besucher finden in 2 statt 5+ Klicks die relevante Produktseite</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.35s">
-          <div class="image-box__image" style="background:linear-gradient(160deg,#0A1523,#1a3050)"><div class="image-box__image-num">M2</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.35s" data-img="muegge-3d-gen">
+          <div class="image-box__image"><div class="image-box__image-num">M2</div></div>
           <div class="image-box__content">
             <div class="image-box__badge">Modul 2</div>
             <div class="image-box__title">Produktfinder &amp; Konfigurator</div>
@@ -729,8 +750,8 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__benefit">Vorteil: Self-Service entlastet den Vertrieb bei Standard-Anfragen</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.5s">
-          <div class="image-box__image" style="background:linear-gradient(200deg,#0A1523,#162842)"><div class="image-box__image-num">M3</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.5s" data-img="ai">
+          <div class="image-box__image"><div class="image-box__image-num">M3</div></div>
           <div class="image-box__content">
             <div class="image-box__badge">Modul 3</div>
             <div class="image-box__title">KI-Besuchererkennung</div>
@@ -753,8 +774,8 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-subtitle" data-anim style="--d:0.15s">Module 4&ndash;6: Content-Engine, Messe-Integration &amp; Tech-Fundament</div>
     <div class="s-content" style="justify-content:center;">
       <div class="grid-3">
-        <div class="image-box" data-anim="scale" style="--d:0.2s">
-          <div class="image-box__image" style="background:linear-gradient(170deg,#0A1523,#122a42)"><div class="image-box__image-num">M4</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="content">
+          <div class="image-box__image"><div class="image-box__image-num">M4</div></div>
           <div class="image-box__content">
             <div class="image-box__badge">Modul 4</div>
             <div class="image-box__title">Content-Engine &amp; Nurturing</div>
@@ -766,8 +787,8 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__benefit">Vorteil: Eigene E-Mail-Liste statt Abh&auml;ngigkeit von Messen</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.35s">
-          <div class="image-box__image" style="background:linear-gradient(145deg,#0A1523,#163048)"><div class="image-box__image-num">M5</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.35s" data-img="muegge-messe">
+          <div class="image-box__image"><div class="image-box__image-num">M5</div></div>
           <div class="image-box__content">
             <div class="image-box__badge">Modul 5</div>
             <div class="image-box__title">Messe-Integration</div>
@@ -779,8 +800,8 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__benefit">Vorteil: 9 Messen/Jahr digital verl&auml;ngert, nicht nur 3-Tage-Events</div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.5s">
-          <div class="image-box__image" style="background:linear-gradient(190deg,#0A1523,#1a3555)"><div class="image-box__image-num">M6</div></div>
+        <div class="image-box" data-anim="scale" style="--d:0.5s" data-img="muegge-3d-plasma">
+          <div class="image-box__image"><div class="image-box__image-num">M6</div></div>
           <div class="image-box__content">
             <div class="image-box__badge">Modul 6</div>
             <div class="image-box__title">Technisches Fundament</div>

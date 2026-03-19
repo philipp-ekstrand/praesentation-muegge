@@ -1,8 +1,9 @@
 # Style Guide — MUEGGE Workshop-Präsentation
 
 ## Design-Referenz
-Basiert auf https://procme.greyt-webseiten.com/ (Greyt PROCME Sales-Präsentation).
-Adaptiert mit Purple statt Blue.
+Basiert auf https://procme.greyt-webseiten.com/ (Greyt PROCME Sales-Prasentation).
+Adaptiert mit Purple statt Blue. Zusatzliche Patterns aus greyt-starter (Animationen,
+fluid Typography) und Catalpa (Glass Morphism, farbige Shadows, Micro-Interactions).
 
 ## Farbpalette
 
@@ -87,16 +88,43 @@ Adaptiert mit Purple statt Blue.
 4. **Detail Column** (`dcol`): Nummer + Title + Bullet-Liste
 5. **Question Block** (`q-block`): Nummer + Frage-Text, left-border purple
 
+6. **Formula Chip** (`formula-chip`): Pill-Shape mit Icon + Text, Outline oder Filled
+7. **Assessment Panel** (`panel--green/amber/red`): Farbcodierte Bewertungs-Cards
+8. **Contact Card** (`contact-card`): Zentrierte Kontaktinfo mit Brand + Divider
+
 ### Alle Cards
 - Background: `#FFFFFF` oder `#F8F9FA`
 - Border: `1px solid #E9ECEF`
 - Border-radius: `16px`
-- **KEINE Gradients, KEINE Shadows**
+- Farbige Shadows: `box-shadow: 0 4px 16px rgba(91,33,182,0.06)`
+- Hover-Lift: `translateY(-2px)` + verstarkte Shadow
 
 ### Icons
 - Inline SVGs (stroke-based, 24x24 viewBox)
 - In `card-icon-circle` Container: 52x52px, border-radius 14px, background `--primary-dim`
 - Stroke: `--primary`, fill: none, stroke-width: 2
 
+## Animationen (v3)
+
+### Entrance-Animationen
+- `data-anim` Attribut auf Content-Elementen
+- `slide-fade-up`: opacity 0 + translateY(24px) → normal (0.6s ease)
+- `slide-fade-scale`: opacity 0 + translateY(12px) + scale(0.97) → normal
+- Stagger via `--d` CSS Variable (z.B. `style="--d:0.2s"`)
+- Reset bei Slide-Wechsel (JS `resetAnims()`)
+- `prefers-reduced-motion` wird respektiert
+
+### Glass Morphism (nur Vision 2)
+- `backdrop-filter: blur(12px)` + rgba Background
+- Nur auf `.mod-grid .card-clean` Elementen
+
+### Cover-Textur
+- Dot-Grid Pattern via CSS `radial-gradient` Pseudo-Element
+
 ## CSS Custom Properties
-Alle Design-Tokens sind als CSS Custom Properties in `:root` definiert. Bei Änderungen dort zentral anpassen.
+Alle Design-Tokens sind als CSS Custom Properties in `:root` definiert. Bei Anderungen dort zentral anpassen.
+
+## Deployment
+- GitHub: https://github.com/philipp-ekstrand/praesentation-muegge
+- Vercel: https://slidesmuegge.vercel.app/muegge-workshop.html
+- Auto-Deploy bei Push auf `main`

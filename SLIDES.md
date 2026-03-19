@@ -1,147 +1,109 @@
-# Slide-Dokumentation — MUEGGE Workshop-Präsentation
+# Slide-Dokumentation — MUEGGE Workshop-Prasentation
 
-13 Slides total. `data-slide="0"` bis `data-slide="12"`.
+14 Slides total. `data-slide="0"` bis `data-slide="13"`.
 
 ---
 
 ## Slide 1 (data-slide="0") — Cover
-**Typ:** Full-bleed Cover
+**Typ:** Full-bleed Cover mit Dot-Grid Textur
 **Headline:** WEBSITE-ANALYSE & OPTIMIERUNGSKONZEPT
-**Logo-Pills:** MUEGGE Group × greyt.
+**Logo-Pills:** MUEGGE Group x greyt.
 **Tagline:** GREYT IDEAS TODAY — GREYT IMPACT TOMORROW
 **CTA:** Klicken zum Starten
 
 ---
 
-## Slide 2 (data-slide="1") — Agenda / Value Prop
-**Badge:** Workshop · März 2026
-**Headline:** Wir zeigen Ihnen, wie Ihre Website zum **digitalen Vertriebstool** wird
-**Subtitle:** Analyse + Optimierungskonzept + priorisierte Roadmap
-**Content:** 5 Agenda-Cards (Status Quo, Kernprobleme, Zwei Visionen, Roadmap & Zielwerte, Offene Fragen)
-**Letzter Punkt** ("Offene Fragen") ist farbig hervorgehoben (filled purple)
+## Slide 2 (data-slide="1") — Value Proposition
+**Badge:** Unser Ziel fur MUEGGE
+**Headline:** Ihre Website zum **Vertriebstool machen** das 24/7 Leads liefert
+**Content:** Formel-Chips: Sichtbarkeit + Conversion = Wachstum
 
 ---
 
-## Slide 3 (data-slide="2") — Status Quo: Key Findings
+## Slide 3 (data-slide="2") — Agenda
+**Badge:** Workshop - Marz 2026
+**Headline:** Die **Leitplanken**
+**Subtitle:** Unser Fahrplan fur heute
+**Content:** 3 Cards (Wo? / Wohin? / Wie?) mit SVG-Icons
+
+---
+
+## Slide 4 (data-slide="3") — Status Quo: Key Findings
 **Badge:** Status Quo
-**Headline:** Key Findings
-**Subtitle:** muegge-group.com · Aktuelle Kennzahlen
+**Headline:** Erste **Erkenntnisse**
+**Subtitle:** Status Quo - muegge-group.com
 **Content:**
-- 4 Metric Cards: ~200 Visitors, 0 Leads, 59% Search, 6 Sprachen
-- 4 Bullet Points: Off-Canvas-Nav, Popup-Kontaktformular, keine Branchen-Pages, Platzhalter-Bilder
-**Datenquelle:** DOCX Abschnitt E1, E2, E3, E4
+- 4 Metric Cards: ~200 Visitors (rot), 0 Leads (rot), 59% Search, 6 Sprachen
+- 3 Assessment-Cards: Grun (vorhanden), Gelb (Optimierung), Rot (Lucken)
 
 ---
 
-## Slide 4 (data-slide="3") — Benchmark
+## Slide 5 (data-slide="4") — Benchmark
 **Badge (filled):** Sairem von MUEGGE selbst als Benchmark benannt
 **Headline:** MUEGGE vs. **Sairem**
-**Subtitle:** Vergleich der wichtigsten Website-Features
-**Content:** Vergleichstabelle 8 Zeilen (Branchen-Pages, Produktfinder, Case Studies, Download-Center, After-Sales, Newsletter, Mega-Menü, Messe-Kalender)
-**Datenquelle:** DOCX Abschnitt 2.7
+**Content:** Vergleichstabelle 8 Zeilen
 
 ---
 
-## Slide 5 (data-slide="4") — Die 5 größten Hebel
+## Slide 6 (data-slide="5") — Die 5 grossten Hebel
 **Badge:** Kernprobleme
-**Headline:** Die 5 größten **Hebel**
-**Subtitle:** Hier liegt das größte Potenzial für Ihre Website
-**Content:** 5 Numbered Cards:
-1. Kein Conversion-Funnel
-2. Off-Canvas statt Mega-Menü
-3. Keine Branchen-Landing-Pages
-4. 6x manuell übersetzen
-5. USPs unsichtbar
+**Headline:** Die 5 grossten **Hebel**
+**Content:** 5 Numbered Cards mit Stagger-Animation
 
 ---
 
-## Slide 6 (data-slide="5") — Vision 1: Optimierung
+## Slide 7 (data-slide="6") — Vision 1: Optimierung
 **Badge:** Vision 1
 **Headline:** Bestehende Website **aufwerten**
-**Subtitle:** WordPress + Elementor bleibt. Fokus auf Content und Conversion.
-**Content:** Zwei-Spalten:
-- Links (grün): Was sich ändert (6 Punkte)
-- Rechts (grau): Was sich NICHT ändert (5 Punkte)
-- Fazit-Box unten
-**Datenquelle:** DOCX "Vision 1: Optimierung"
+**Content:** Zwei-Spalten (Grun: Was sich andert / Grau: Was nicht) + Fazit-Box
 
 ---
 
-## Slide 7 (data-slide="6") — Vision 2: Nordstern Übersicht
-**Badge (filled):** Vision 2 — Nordstern
+## Slide 8 (data-slide="7") — Vision 2: Nordstern Ubersicht
+**Badge (filled):** Vision 2 — Empfohlen
 **Headline:** Die Website als **digitaler Vertriebsmitarbeiter**
-**Subtitle:** Sechs Module für Ihren digitalen Vertriebserfolg
-**Content:** 3×2 Grid mit 6 Module-Cards (SVG Icons):
-1. Intelligente Nutzerführung
-2. Produktfinder & Konfigurator
-3. KI-Besuchererkennung
-4. Content-Engine & Nurturing
-5. Messe-Integration
-6. Technisches Fundament
+**Content:** 3x2 Grid mit 6 Module-Cards (Glass Morphism, SVG Icons)
 
 ---
 
-## Slide 8 (data-slide="7") — Module 1–3 Detail
+## Slide 9 (data-slide="8") — Module 1-3 Detail
 **Badge:** Nordstern — Module im Detail
-**Headline:** Module **1–3**
-**Subtitle:** Nutzerführung, Produktfinder & Lead Intelligence
+**Headline:** Module **1-3**
 **Content:** 3 Detail-Columns mit je 3 Bullet Points
-**Datenquelle:** DOCX "Modul 1-3"
 
 ---
 
-## Slide 9 (data-slide="8") — Module 4–6 Detail
+## Slide 10 (data-slide="9") — Module 4-6 Detail
 **Badge:** Nordstern — Module im Detail
-**Headline:** Module **4–6**
-**Subtitle:** Content-Engine, Messe-Integration & Tech-Fundament
+**Headline:** Module **4-6**
 **Content:** 3 Detail-Columns mit je 3-4 Bullet Points
-**Datenquelle:** DOCX "Modul 4-6"
 
 ---
 
-## Slide 10 (data-slide="9") — Roadmap
+## Slide 11 (data-slide="10") — Roadmap
 **Badge:** Roadmap
 **Headline:** Priorisierte Umsetzung in **3 Phasen**
-**Subtitle:** Phasen laufen teilweise parallel. Gesamtzeitraum ca. 4–6 Monate.
-**Content:** 3-Spalten Timeline:
-- Phase 1: Quick Wins (2–4 Wo.) — 6 Punkte
-- Phase 2: Konzept & Content (4–8 Wo.) — 6 Punkte
-- Phase 3: Relaunch (8–12 Wo.) — 6 Punkte
+**Content:** 3-Spalten Timeline (Phase 1-3 mit farbigen Bars)
 
 ---
 
-## Slide 11 (data-slide="10") — Zielwerte
+## Slide 12 (data-slide="11") — Zielwerte
 **Badge:** Messbare Ergebnisse
 **Headline:** **Zielwerte**
-**Subtitle:** Erwartete KPIs nach Umsetzung
-**Content:** KPI-Tabelle (5 Zeilen × 4 Spalten):
-- Unique Visitors, Website-Leads, Verweildauer, SEO Keywords, AI-Auffindbarkeit
-- Spalten: KPI | Heute | 6 Monate | 12 Monate
-- Farbcodiert: Heute=rot, 6M=purple, 12M=grün
+**Content:** KPI-Tabelle (5 Zeilen x 4 Spalten, farbcodiert)
 
 ---
 
-## Slide 12 (data-slide="11") — Offene Fragen
+## Slide 13 (data-slide="12") — Offene Fragen
 **Badge:** Workshop-Diskussion
 **Headline:** Offene **Fragen**
-**Subtitle:** Top 5 Diskussionspunkte für heute
-**Content:** 5 Question-Blocks:
-1. Relaunch oder Optimierung?
-2. Welche 3–5 Branchen priorisieren?
-3. Welche Sprachen ab Launch kritisch?
-4. Welche Referenz-Webseiten gefallen Ihnen?
-5. Wie soll der Angebotsanfrage-Prozess aussehen?
+**Content:** 5 Question-Blocks mit Stagger-Animation
 **Hint:** Weitere 9 Fragen im Handout
 
 ---
 
-## Slide 13 (data-slide="12") — Nächste Schritte
+## Slide 14 (data-slide="13") — Nachste Schritte
 **Badge:** Ausblick
-**Headline:** Nächste **Schritte**
-**Subtitle:** Ihr Weg zur optimierten Website
-**Content:** Vertikale Timeline (4 Steps):
-1. Offene Fragen heute klären
-2. Ergebnispräsentation von Greyt
-3. Angebot mit priorisierter Roadmap
-4. Kick-off Phase 1 (Quick Wins)
-**Kontakt:** Johannes Lorenz · johannes.lorenz@greyt.de
+**Headline:** Nachste **Schritte**
+**Content:** Side-by-side: 4 Steps (links 55%) + Contact-Card (rechts 40%)
+**Kontakt:** Johannes Lorenz - johannes.lorenz@greyt.de - +49 1573 6994275

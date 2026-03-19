@@ -4,7 +4,7 @@
 Greyt GmbH erstellt eine professionelle HTML-Präsentation für einen Workshop mit dem Kunden **MUEGGE Group**. Thema: Website-Analyse & Optimierungskonzept. Die Präsentation wird von Johannes Lorenz (Greyt) gehalten.
 
 ## Ziel
-Single-File HTML-Präsentation (13 Slides), die auf dem Design-Level der PROCME-Referenz (https://procme.greyt-webseiten.com/) liegt. Kein Framework — vanilla HTML/CSS/JS, alles inline.
+Single-File HTML-Prasentation (14 Slides), die auf dem Design-Level der PROCME-Referenz (https://procme.greyt-webseiten.com/) liegt. Kein Framework — vanilla HTML/CSS/JS, alles inline.
 
 ## Wichtige Dateien
 
@@ -28,8 +28,13 @@ Die Präsentation orientiert sich am Design von **https://procme.greyt-webseiten
 - **Footer-Bar:** Slide-Counter + Progress-Bar + "Pfeiltasten zur Navigation" + "greyt." Logo
 - **Print:** Alle Slides untereinander via `@media print`
 
+## Deployment
+- **GitHub:** https://github.com/philipp-ekstrand/praesentation-muegge (public)
+- **Vercel:** https://slidesmuegge.vercel.app/muegge-workshop.html (Free Tier, Auto-Deploy)
+- Push auf `main` triggert automatischen Vercel-Build
+
 ## Verifikation
-Immer nach Änderungen mit Playwright via `http://127.0.0.1:8791/muegge-workshop.html` (python3 HTTP server) verifizieren. Screenshots machen und vergleichen.
+Immer nach Anderungen mit Playwright via `http://127.0.0.1:8791/muegge-workshop.html` (python3 HTTP server) verifizieren. Screenshots machen und vergleichen. Nach Deploy auch die Vercel-URL prufen.
 
 ## Regeln
 - Niemals `git push` ohne explizite Anweisung

@@ -390,6 +390,133 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
   background-size: 32px 32px; pointer-events: none;
 }
 
+/* ===== SLIDE 4: DARK METRIC CARDS + UNIFIED PANELS ===== */
+[data-slide="3"] .metric-card { background: var(--dark-bg); border-color: var(--dark-bg); }
+[data-slide="3"] .metric-val { color: var(--white); }
+[data-slide="3"] .metric-label { color: rgba(255,255,255,0.65); }
+[data-slide="3"] .panel { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.15); }
+[data-slide="3"] .panel__icon { background: rgba(0,212,255,0.12); }
+[data-slide="3"] .panel__icon svg { stroke: var(--primary) !important; }
+[data-slide="3"] .panel li { font-size: clamp(12px, 0.95vw, 14px); }
+[data-slide="3"] .panel li::before { background: var(--primary) !important; }
+[data-slide="3"] .panel-head { font-size: clamp(14px, 1.2vw, 17px); }
+
+/* ===== SLIDE 5: TABLE ENHANCEMENTS ===== */
+table.cmp .feat-icon { stroke: var(--dark-bg); }
+.feat-desc { display: block; font-size: clamp(10px, 0.75vw, 12px); color: var(--text-muted); font-weight: 400; margin-top: 2px; line-height: 1.3; }
+.table-scroll { max-height: calc(100vh - 260px); overflow-y: auto; width: 100%; border-radius: 8px; }
+.table-scroll::-webkit-scrollbar { width: 4px; }
+.table-scroll::-webkit-scrollbar-thumb { background: var(--border-card); border-radius: 2px; }
+
+/* ===== SLIDE 7 VISION 1: IMAGE BOXES ===== */
+[data-slide="6"] .constraints-bar span::before { content: none; }
+.constraints-bar .cb-check { width: 14px; height: 14px; stroke: var(--success); fill: none; stroke-width: 2.5; vertical-align: middle; margin-right: 6px; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+[data-slide="6"] .constraints-bar { align-items: center; }
+[data-slide="6"] .constraints-bar span { display: inline-flex; align-items: center; }
+
+/* ===== SLIDE 8 VISION 2: NOAH LABS STYLE ===== */
+.image-box--noah {
+  position: relative; border-radius: 20px; overflow: hidden;
+  display: flex; flex-direction: column; background: var(--dark-bg);
+  border: 1px solid var(--border-card); min-height: 220px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.image-box--noah .image-box__image { position: absolute; inset: 0; aspect-ratio: auto; background-size: cover !important; background-position: center !important; }
+.image-box--noah .image-box__content {
+  position: relative; z-index: 2; margin-top: auto;
+  background: rgba(255,255,255,0.94); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+  padding: 16px 20px; border-top: 2px solid rgba(0,212,255,0.3);
+}
+.image-box--noah .image-box__title { color: var(--text); font-size: clamp(14px, 1.2vw, 17px); }
+.image-box--noah .image-box__desc { color: var(--text-sub); font-size: clamp(11px, 0.85vw, 13px); }
+.image-box--noah .image-box__icon { background: var(--primary); margin-bottom: 6px; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+.image-box--noah .image-box__icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ===== SLIDES 9-10: ENHANCED BENEFITS ===== */
+.image-box__benefit-section { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-card); }
+.image-box__benefit-heading {
+  display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: 10px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  background: rgba(0,212,255,0.1); color: var(--dark-bg); margin-bottom: 6px;
+}
+.image-box__benefit-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 3px; }
+.image-box__benefit-list li {
+  font-size: clamp(11px, 0.8vw, 12px); font-weight: 500; color: var(--dark-bg);
+  line-height: 1.4; padding-left: 18px; position: relative;
+}
+.image-box__benefit-list li::before {
+  content: ''; position: absolute; left: 2px; top: 3px; width: 10px; height: 10px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center/contain;
+}
+
+/* ===== SLIDE 11: ROADMAP REDESIGN ===== */
+.roadmap-header { display: grid; grid-template-columns: 140px repeat(3, 1fr); gap: 0; width: 100%; }
+.roadmap-label-header { padding: 14px 16px; font-weight: 700; color: var(--text); background: var(--bg-card); border-radius: 8px 0 0 0; font-size: clamp(12px, 1vw, 14px); }
+.roadmap-phase-header {
+  padding: 14px 20px 14px 28px; color: var(--white); font-weight: 700;
+  font-size: clamp(13px, 1.1vw, 16px); position: relative;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%);
+}
+.roadmap-phase-header:nth-child(2) { clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); border-radius: 0; background: var(--dark-bg); }
+.roadmap-phase-header:nth-child(3) { background: #0F2A45; }
+.roadmap-phase-header:nth-child(4) { background: var(--primary-light); }
+.roadmap-phase-header small { font-weight: 400; opacity: 0.8; font-size: clamp(10px, 0.8vw, 12px); }
+.roadmap-body { display: grid; grid-template-columns: 140px repeat(3, 1fr); gap: 0; width: 100%; }
+.roadmap-row-label {
+  padding: 12px 16px; font-weight: 700; font-size: clamp(11px, 0.9vw, 13px);
+  color: var(--text); background: var(--bg-card); border-bottom: 1px solid var(--border-card);
+  display: flex; align-items: flex-start;
+}
+.roadmap-cell {
+  padding: 10px 14px; border-bottom: 1px solid var(--border-card);
+  border-left: 1px solid var(--border-card); font-size: clamp(11px, 0.8vw, 12px); color: var(--text-sub);
+}
+.roadmap-cell ul { list-style: none; padding: 0; margin: 0; }
+.roadmap-cell li { padding-left: 12px; position: relative; margin-bottom: 2px; line-height: 1.4; }
+.roadmap-cell li::before { content: ''; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--primary); }
+
+/* ===== SLIDE 13: 2-COLUMN QUESTIONS ===== */
+.q-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 14px; width: 100%; }
+.q-grid .q-block { padding: 12px 16px; }
+.q-grid .q-num { font-size: clamp(16px, 1.5vw, 22px); min-width: 28px; }
+.q-grid .q-text { font-size: clamp(12px, 1vw, 15px); }
+
+/* ===== SLIDE 14: PHOTO CONTACT CARD ===== */
+.contact-photo-card {
+  background: var(--bg-card); border: 1px solid var(--border-card);
+  border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;
+  align-items: center; text-align: center;
+}
+.contact-photo-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
+.contact-photo-card__info { padding: 16px 24px; }
+
+/* ===== SLIDE 2: BACKGROUND IMAGES ===== */
+[data-slide="1"] { position: absolute; }
+[data-slide="1"]::before {
+  content: ''; position: absolute; top: -3%; right: -3%; width: 40%; height: 55%;
+  background: url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-muegge-01.jpg) center/cover no-repeat;
+  opacity: 0.08; border-radius: 20px; transform: rotate(5deg); pointer-events: none; z-index: 0;
+}
+[data-slide="1"]::after {
+  content: ''; position: absolute; bottom: 8%; left: -2%; width: 35%; height: 50%;
+  background: url(https://muegge-group.com/wp-content/uploads/2024/03/global-vernetzt-lokal-erreichbar-muegge-reichelsheim.jpg) center/cover no-repeat;
+  opacity: 0.06; border-radius: 20px; transform: rotate(-4deg); pointer-events: none; z-index: 0;
+}
+[data-slide="1"] .s-badge,
+[data-slide="1"] .s-headline,
+[data-slide="1"] .s-subtitle,
+[data-slide="1"] .formula-row { position: relative; z-index: 1; }
+
+/* ===== SLIDE 3: FLOW ARROWS ===== */
+.agenda-flow { display: flex; align-items: stretch; width: 100%; gap: 0; }
+.agenda-flow .image-box { flex: 1; }
+.flow-arrow { display: flex; align-items: center; padding: 0 8px; flex-shrink: 0; }
+.flow-arrow svg { width: 24px; height: 24px; stroke: var(--primary); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+.agenda-flow .image-box__desc ul { list-style: none; padding: 0; margin: 0; }
+.agenda-flow .image-box__desc li { padding-left: 14px; position: relative; margin-bottom: 3px; line-height: 1.45; }
+.agenda-flow .image-box__desc li::before { content: ''; position: absolute; left: 0; top: 7px; width: 5px; height: 5px; border-radius: 50%; background: var(--primary); }
+
 /* ===== HOVER INTERACTIONS ===== */
 @media (hover: hover) {
   .image-box:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,212,255,0.12); }
@@ -456,32 +583,55 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-headline" data-anim style="--d:0.1s">Die <span class="accent">Leitplanken</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Unser Fahrplan f&uuml;r heute</div>
     <div class="s-content" style="justify-content:center;">
-      <div class="grid-3">
-        <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="muegge1">
+      <div class="agenda-flow" data-anim style="--d:0.2s">
+        <div class="image-box" data-img="muegge1">
           <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
             <div class="image-box__badge">Analyse</div>
             <div class="image-box__title">Wo stehen wir?</div>
-            <div class="image-box__desc">Status quo &amp; Benchmark &mdash; Wo steht muegge-group.com heute im Vergleich zum Wettbewerb?</div>
+            <div class="image-box__desc">
+              <ul>
+                <li>Traffic-Analyse &amp; Sichtbarkeit</li>
+                <li>Wettbewerbs-Benchmark (Sairem)</li>
+                <li>Content- &amp; UX-Audit</li>
+                <li>Conversion-Potenziale identifizieren</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.35s" data-img="strategy">
+        <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="image-box" data-img="strategy">
           <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
             <div class="image-box__badge">Strategie</div>
             <div class="image-box__title">Wohin wollen wir?</div>
-            <div class="image-box__desc">Zwei Visionen &mdash; Optimierung des Bestehenden oder die Website als digitaler Vertriebsmitarbeiter?</div>
+            <div class="image-box__desc">
+              <ul>
+                <li>Vision 1: Bestehendes optimieren</li>
+                <li>Vision 2: Digitaler Vertriebsmitarbeiter</li>
+                <li>6-Modul-Konzept vorstellen</li>
+                <li>Priorisierung festlegen</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="image-box" data-anim="scale" style="--d:0.5s" data-img="digital">
+        <div class="flow-arrow"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></div>
+        <div class="image-box" data-img="digital">
           <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
             <div class="image-box__badge">Umsetzung</div>
             <div class="image-box__title">Wie kommen wir dahin?</div>
-            <div class="image-box__desc">Priorisierte Ma&szlig;nahmen, Zeitrahmen und offene Fragen f&uuml;r den Workshop.</div>
+            <div class="image-box__desc">
+              <ul>
+                <li>3-Phasen-Roadmap definieren</li>
+                <li>Quick Wins sofort identifizieren</li>
+                <li>Zeitrahmen &amp; Ressourcen kl&auml;ren</li>
+                <li>Offene Fragen im Workshop besprechen</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -548,21 +698,27 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-headline" data-anim style="--d:0.1s">MUEGGE vs. <span class="accent">Sairem</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Vergleich der wichtigsten Website-Features</div>
     <div class="s-content" style="justify-content:center;">
-      <table class="cmp" data-anim style="--d:0.25s">
+      <div class="table-scroll" data-anim style="--d:0.25s">
+      <table class="cmp">
         <thead><tr><th>Feature</th><th>MUEGGE</th><th>Sairem</th></tr></thead>
         <tbody>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Corporate Website</td><td class="t-yes">&#10003; 6 Sprachen</td><td class="t-yes">&#10003; 4 Sprachen</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>Produktkatalog</td><td class="t-yes">&#10003; Online</td><td class="t-yes">&#10003; Online</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Branchen- / Application Pages</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Pro Anwendung</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Produktfinder / Konfigurator</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Gef&uuml;hrte Auswahl</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Case Studies</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Nach Branche</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download-Center</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Zentral</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>After-Sales-Seite</td><td class="t-no">&#10005; (trotz USP Nr.&thinsp;1)</td><td class="t-yes">&#10003; + Ticketsystem</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>Newsletter</td><td class="t-no">&#10005;</td><td class="t-yes">&#10003;</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Mega-Men&uuml;</td><td class="t-no">&#10005; Off-Canvas</td><td class="t-yes">&#10003; Sichtbar</td></tr>
-          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Messe-Kalender</td><td class="t-warn">&#9888; Nur Fotos</td><td class="t-yes">&#10003; Strukturiert</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Corporate Website<span class="feat-desc">Mehrsprachige Unternehmenspr&auml;senz mit Produktinfos</span></td><td class="t-yes">&#10003; 6 Sprachen</td><td class="t-yes">&#10003; 4 Sprachen</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/></svg>Produktkatalog<span class="feat-desc">Online-Katalog mit Kategorisierung und Specs</span></td><td class="t-yes">&#10003; Online</td><td class="t-yes">&#10003; Online</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>Internationale Pr&auml;senz<span class="feat-desc">Standorte, Vertretungen und Service weltweit</span></td><td class="t-yes">&#10003; 4 Standorte global</td><td class="t-warn">&#9888; Frankreich-fokussiert</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Produktbandbreite<span class="feat-desc">Generatoren, Magnetrons, Plasmasysteme</span></td><td class="t-yes">&#10003; Vollsortiment</td><td class="t-yes">&#10003; Teilsortiment</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Messe-Pr&auml;senz<span class="feat-desc">Regelm&auml;&szlig;ige Teilnahme an Fachmessen weltweit</span></td><td class="t-yes">&#10003; 9 Messen/Jahr</td><td class="t-yes">&#10003; Regelm&auml;&szlig;ig</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>Markenbekanntheit<span class="feat-desc">Reputation und Vertrauen in der Branche</span></td><td class="t-yes">&#10003; 40+ Jahre Marktf&uuml;hrer</td><td class="t-yes">&#10003; Etabliert</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>Branchen- / Application Pages<span class="feat-desc">Dedizierte Seiten pro Anwendungsgebiet</span></td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Pro Anwendung</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Produktfinder / Konfigurator<span class="feat-desc">Gef&uuml;hrte Produktauswahl f&uuml;r Interessenten</span></td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Gef&uuml;hrte Auswahl</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Case Studies<span class="feat-desc">Referenzprojekte nach Branche und Anwendung</span></td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Nach Branche</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Download-Center<span class="feat-desc">Zentrale Anlaufstelle f&uuml;r Datenbl&auml;tter und Dokumente</span></td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Zentral</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>After-Sales-Seite<span class="feat-desc">Service-Bereich mit Kontakt und Ticketsystem</span></td><td class="t-no">&#10005; (trotz USP Nr.&thinsp;1)</td><td class="t-yes">&#10003; + Ticketsystem</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>Newsletter<span class="feat-desc">Regelm&auml;&szlig;ige Updates an Interessenten und Kunden</span></td><td class="t-no">&#10005;</td><td class="t-yes">&#10003;</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Mega-Men&uuml;<span class="feat-desc">Sichtbare Navigation mit allen Bereichen auf einen Blick</span></td><td class="t-no">&#10005; Off-Canvas</td><td class="t-yes">&#10003; Sichtbar</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Messe-Kalender<span class="feat-desc">Strukturierte &Uuml;bersicht kommender Events</span></td><td class="t-warn">&#9888; Nur Fotos</td><td class="t-yes">&#10003; Strukturiert</td></tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 
@@ -620,39 +776,57 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-headline" data-anim style="--d:0.1s">Bestehende Website <span class="accent">aufwerten</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">WordPress + Elementor bleibt. Fokus auf Content und Conversion.</div>
     <div class="s-content">
-      <div class="s-badge" data-anim style="--d:0.2s;align-self:flex-start;margin-bottom:8px">Scope der Optimierung</div>
-      <div class="scope-grid" data-anim style="--d:0.25s">
-        <div class="scope-item">
-          <div class="scope-item__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
-          <div class="scope-item__text">Kontaktformular direkt eingebettet, Turnstile statt reCAPTCHA</div>
+      <div style="font-size:clamp(14px,1.2vw,17px);font-weight:700;color:var(--text);margin-bottom:10px;align-self:flex-start" data-anim style="--d:0.2s">Was sich &auml;ndert</div>
+      <div class="grid-3" data-anim style="--d:0.25s">
+        <div class="image-box" data-img="muegge1">
+          <div class="image-box__image" style="aspect-ratio:2/1"></div>
+          <div class="image-box__content" style="padding:14px 18px">
+            <div class="image-box__title" style="font-size:clamp(13px,1.1vw,15px)">Kontaktformular</div>
+            <div class="image-box__desc">Direkt eingebettet, Turnstile statt reCAPTCHA. Kein Popup mehr.</div>
+          </div>
         </div>
-        <div class="scope-item">
-          <div class="scope-item__icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg></div>
-          <div class="scope-item__text">8&ndash;10 neue Branchen-Landing-Pages</div>
+        <div class="image-box" data-img="muegge-team">
+          <div class="image-box__image" style="aspect-ratio:2/1"></div>
+          <div class="image-box__content" style="padding:14px 18px">
+            <div class="image-box__title" style="font-size:clamp(13px,1.1vw,15px)">Branchen-Landing-Pages</div>
+            <div class="image-box__desc">8&ndash;10 neue Seiten pro Anwendungsgebiet mit SEO-Fokus.</div>
+          </div>
         </div>
-        <div class="scope-item">
-          <div class="scope-item__icon"><svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
-          <div class="scope-item__text">Blog-Content: 2 Artikel / Monat</div>
+        <div class="image-box" data-img="content">
+          <div class="image-box__image" style="aspect-ratio:2/1"></div>
+          <div class="image-box__content" style="padding:14px 18px">
+            <div class="image-box__title" style="font-size:clamp(13px,1.1vw,15px)">Blog-Content</div>
+            <div class="image-box__desc">2 Artikel/Monat, keyword-optimiert f&uuml;r organische Sichtbarkeit.</div>
+          </div>
         </div>
-        <div class="scope-item">
-          <div class="scope-item__icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
-          <div class="scope-item__text">GA4 + Server-Side GTM Tracking</div>
+        <div class="image-box" data-img="analytics">
+          <div class="image-box__image" style="aspect-ratio:2/1"></div>
+          <div class="image-box__content" style="padding:14px 18px">
+            <div class="image-box__title" style="font-size:clamp(13px,1.1vw,15px)">Tracking &amp; Analytics</div>
+            <div class="image-box__desc">GA4 + Server-Side GTM f&uuml;r sauberes Conversion-Tracking.</div>
+          </div>
         </div>
-        <div class="scope-item">
-          <div class="scope-item__icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-          <div class="scope-item__text">USP-Platzierung &amp; Redirects bereinigen</div>
+        <div class="image-box" data-img="muegge-hq">
+          <div class="image-box__image" style="aspect-ratio:2/1"></div>
+          <div class="image-box__content" style="padding:14px 18px">
+            <div class="image-box__title" style="font-size:clamp(13px,1.1vw,15px)">USP-Platzierung</div>
+            <div class="image-box__desc">After-Sales USP sichtbar machen, Redirects bereinigen.</div>
+          </div>
         </div>
-        <div class="scope-item">
-          <div class="scope-item__icon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="scope-item__text">Produktseiten mit echten Fotos &amp; Beschreibungen</div>
+        <div class="image-box" data-img="muegge-3d-gen">
+          <div class="image-box__image" style="aspect-ratio:2/1"></div>
+          <div class="image-box__content" style="padding:14px 18px">
+            <div class="image-box__title" style="font-size:clamp(13px,1.1vw,15px)">Produktseiten</div>
+            <div class="image-box__desc">Echte Fotos &amp; Beschreibungen statt Platzhalter-Bilder.</div>
+          </div>
         </div>
       </div>
       <div class="constraints-bar" data-anim style="--d:0.35s">
-        <span>Off-Canvas-Navigation bleibt</span>
-        <span>Mehrsprachigkeit bleibt manuell</span>
-        <span>Produkt-Import bleibt CSV</span>
-        <span>Keine ERP-Integration</span>
-        <span>Keine Vertriebsautomation</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Off-Canvas-Navigation bleibt</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Mehrsprachigkeit bleibt manuell</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Produkt-Import bleibt CSV</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Keine ERP-Integration</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Keine Vertriebsautomation</span>
       </div>
       <div class="fazit" data-anim style="--d:0.4s"><p><strong>Fazit:</strong> Mehr Traffic und Sichtbarkeit, erste Leads. Aber die Website bleibt informierend &mdash; kein echtes Vertriebstool.</p></div>
     </div>
@@ -665,7 +839,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-subtitle" data-anim style="--d:0.15s">Sechs Module f&uuml;r qualifizierte Leads rund um die Uhr</div>
     <div class="s-content" style="justify-content:center;">
       <div class="grid-3x2">
-        <div class="image-box--glass" data-anim="scale" style="--d:0.2s" data-img="muegge1">
+        <div class="image-box--noah" data-anim="scale" style="--d:0.2s" data-img="muegge1">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
@@ -673,7 +847,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__desc">Mega-Men&uuml;, Branchen-Entry-Points, dynamische Inhalte</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.3s" data-img="muegge-3d-gen">
+        <div class="image-box--noah" data-anim="scale" style="--d:0.3s" data-img="muegge-3d-gen">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
@@ -681,7 +855,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__desc">Gef&uuml;hrte Auswahl, Self-Service Anfrage, Live-Daten aus ERP</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.4s" data-img="ai">
+        <div class="image-box--noah" data-anim="scale" style="--d:0.4s" data-img="ai">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
@@ -689,7 +863,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__desc">B2B-Firmenidentifikation, Intent-Scoring, CRM-Integration</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.35s" data-img="content">
+        <div class="image-box--noah" data-anim="scale" style="--d:0.35s" data-img="content">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
@@ -697,7 +871,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__desc">Download-Center, Gated Content, Newsletter-Automation</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.45s" data-img="muegge-messe">
+        <div class="image-box--noah" data-anim="scale" style="--d:0.45s" data-img="muegge-messe">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
@@ -705,7 +879,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
             <div class="image-box__desc">Landing Page pro Messe, QR-Tracking, Post-Messe-Nurturing</div>
           </div>
         </div>
-        <div class="image-box--glass" data-anim="scale" style="--d:0.55s" data-img="muegge-3d-plasma">
+        <div class="image-box--noah" data-anim="scale" style="--d:0.55s" data-img="muegge-3d-plasma">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
@@ -734,7 +908,14 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
               &#10003; Branchenspezifische Entry Points auf Startseite<br>
               &#10003; Dynamische Inhalte f&uuml;r wiederkehrende Besucher
             </div>
-            <div class="image-box__benefit">Vorteil: Besucher finden in 2 statt 5+ Klicks die relevante Produktseite</div>
+            <div class="image-box__benefit-section">
+              <div class="image-box__benefit-heading">Vorteile</div>
+              <ul class="image-box__benefit-list">
+                <li>Besucher finden in 2 statt 5+ Klicks die relevante Produktseite</li>
+                <li>Branchenspezifische Einstiegspunkte erh&ouml;hen Relevanz sofort</li>
+                <li>Wiederkehrende Besucher sehen personalisierte Inhalte</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="image-box" data-anim="scale" style="--d:0.35s" data-img="muegge-3d-gen">
@@ -747,7 +928,14 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
               &#10003; Produkt-Detailseiten mit Specs &mdash; live aus MyFactory<br>
               &#10003; Self-Service Angebotsanfrage direkt ins CRM
             </div>
-            <div class="image-box__benefit">Vorteil: Self-Service entlastet den Vertrieb bei Standard-Anfragen</div>
+            <div class="image-box__benefit-section">
+              <div class="image-box__benefit-heading">Vorteile</div>
+              <ul class="image-box__benefit-list">
+                <li>Self-Service entlastet den Vertrieb bei Standard-Anfragen</li>
+                <li>Echtzeit-Produktdaten aus ERP &mdash; immer aktuell, keine manuelle Pflege</li>
+                <li>K&uuml;rzerer Sales-Cycle durch sofortige Angebotsanfrage</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="image-box" data-anim="scale" style="--d:0.5s" data-img="ai">
@@ -760,7 +948,14 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
               &#10003; Intent-basiertes Lead-Scoring nach Seitenverhalten<br>
               &#10003; Automatische CRM-Integration mit vollem Kontext
             </div>
-            <div class="image-box__benefit">Vorteil: Vertrieb erh&auml;lt qualifizierte Leads mit Kontext statt Kaltanfragen</div>
+            <div class="image-box__benefit-section">
+              <div class="image-box__benefit-heading">Vorteile</div>
+              <ul class="image-box__benefit-list">
+                <li>Vertrieb erh&auml;lt qualifizierte Leads mit Kontext statt Kaltanfragen</li>
+                <li>Anonyme Website-Besucher werden zu identifizierten Firmen</li>
+                <li>Automatisches Lead-Scoring priorisiert die heissesten Kontakte</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -784,7 +979,14 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
               &#10003; Newsletter: Segmentiert nach Branche, &uuml;ber Monate<br>
               &#10003; Blog: 2+ Artikel/Monat, keyword-optimiert
             </div>
-            <div class="image-box__benefit">Vorteil: Eigene E-Mail-Liste statt Abh&auml;ngigkeit von Messen</div>
+            <div class="image-box__benefit-section">
+              <div class="image-box__benefit-heading">Vorteile</div>
+              <ul class="image-box__benefit-list">
+                <li>Eigene E-Mail-Liste statt Abh&auml;ngigkeit von Messen</li>
+                <li>Gated Content generiert qualifizierte Kontakte automatisch</li>
+                <li>Segmentierte Newsletter halten Interessenten &uuml;ber Monate warm</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="image-box" data-anim="scale" style="--d:0.35s" data-img="muegge-messe">
@@ -797,7 +999,14 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
               &#10003; QR-Codes am Messestand &rarr; jeder Scan getrackt<br>
               &#10003; Post-Messe Follow-up: Website trackt Weiter-Informierer
             </div>
-            <div class="image-box__benefit">Vorteil: 9 Messen/Jahr digital verl&auml;ngert, nicht nur 3-Tage-Events</div>
+            <div class="image-box__benefit-section">
+              <div class="image-box__benefit-heading">Vorteile</div>
+              <ul class="image-box__benefit-list">
+                <li>9 Messen/Jahr digital verl&auml;ngert, nicht nur 3-Tage-Events</li>
+                <li>QR-Tracking zeigt welche Messe-Kontakte sich weiter informieren</li>
+                <li>Automatisiertes Follow-up nach jeder Messe ohne manuellen Aufwand</li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="image-box" data-anim="scale" style="--d:0.5s" data-img="muegge-3d-plasma">
@@ -811,7 +1020,14 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
               &#10003; ERP-Echtzeit-Sync aus MyFactory<br>
               &#10003; AI-Discoverability: Schema.org, llms.txt, SSR
             </div>
-            <div class="image-box__benefit">Vorteil: 6 Sprachen automatisch statt 0,5 FTE manuelle &Uuml;bersetzung</div>
+            <div class="image-box__benefit-section">
+              <div class="image-box__benefit-heading">Vorteile</div>
+              <ul class="image-box__benefit-list">
+                <li>6 Sprachen automatisch statt 0,5 FTE manuelle &Uuml;bersetzung</li>
+                <li>Headless-Architektur erm&ouml;glicht flexible Frontend-Anpassungen</li>
+                <li>Schema.org + llms.txt: MUEGGE wird von KI-Assistenten empfohlen</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -824,19 +1040,27 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
     <div class="s-headline" data-anim style="--d:0.1s">Priorisierte Umsetzung in <span class="accent">3 Phasen</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Phasen laufen teilweise parallel. Gesamtzeitraum ca. 4&ndash;6 Monate.</div>
     <div class="s-content" style="justify-content:center;">
-      <div class="timeline" data-anim style="--d:0.25s">
-        <div class="tl-phase">
-          <div class="tl-bar"></div><div class="tl-label">Phase 1</div><div class="tl-title">Quick Wins</div><div class="tl-dur">2&ndash;4 Wochen</div>
-          <ul class="tl-items"><li>Kontaktformular einbetten, Popup eliminieren</li><li>reCAPTCHA &rarr; Cloudflare Turnstile</li><li>Legacy-URLs per 301-Redirect bereinigen</li><li>After-Sales-USP auf Startseite</li><li>GA4 + Server-Side GTM aufsetzen</li><li>Platzhalter-Bilder durch reale Fotos ersetzen</li></ul>
-        </div>
-        <div class="tl-phase">
-          <div class="tl-bar"></div><div class="tl-label">Phase 2</div><div class="tl-title">Konzept &amp; Content</div><div class="tl-dur">4&ndash;8 Wochen</div>
-          <ul class="tl-items"><li>Informationsarchitektur &amp; Sitemap</li><li>Mega-Men&uuml;-Struktur ausarbeiten</li><li>SEO-Keyword-Strategie pro Branche</li><li>8&ndash;10 Branchen-Landing-Pages texten</li><li>Blog-Produktion starten (2/Monat)</li><li>Erste Branchen-Seiten auf WordPress</li></ul>
-        </div>
-        <div class="tl-phase">
-          <div class="tl-bar"></div><div class="tl-label">Phase 3</div><div class="tl-title">Relaunch</div><div class="tl-dur">8&ndash;12 Wochen</div>
-          <ul class="tl-items"><li>Sanity CMS + Next.js aufsetzen</li><li>MyFactory ERP-API-Integration</li><li>Automatisierter &Uuml;bersetzungs-Workflow</li><li>Mega-Men&uuml;, Produktfinder, Download-Center</li><li>Schema.org, llms.txt, AI-Discoverability</li><li>Launch, Redirects, QA</li></ul>
-        </div>
+      <div class="roadmap-header" data-anim style="--d:0.25s">
+        <div class="roadmap-label-header"></div>
+        <div class="roadmap-phase-header">Phase 1 &mdash; Quick Wins<br><small>2&ndash;4 Wochen</small></div>
+        <div class="roadmap-phase-header">Phase 2 &mdash; Konzept &amp; Content<br><small>4&ndash;8 Wochen</small></div>
+        <div class="roadmap-phase-header">Phase 3 &mdash; Relaunch<br><small>8&ndash;12 Wochen</small></div>
+      </div>
+      <div class="roadmap-body" data-anim style="--d:0.35s">
+        <div class="roadmap-row-label">Fokus</div>
+        <div class="roadmap-cell"><ul><li>Conversion-Barrieren entfernen</li><li>Tracking-Basis schaffen</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Informationsarchitektur &amp; Sitemap</li><li>SEO-Strategie pro Branche</li><li>Content-Produktion starten</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Tech-Migration auf Sanity + Next.js</li><li>ERP-Integration &amp; Automation</li><li>&Uuml;bersetzungs-Workflow</li></ul></div>
+
+        <div class="roadmap-row-label">Ma&szlig;nahmen</div>
+        <div class="roadmap-cell"><ul><li>Kontaktformular einbetten</li><li>Turnstile statt reCAPTCHA</li><li>301-Redirects bereinigen</li><li>After-Sales-USP auf Startseite</li><li>GA4 + Server-Side GTM</li><li>Platzhalter &rarr; echte Fotos</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Mega-Men&uuml;-Struktur</li><li>8&ndash;10 Branchen-LPs texten</li><li>Blog starten (2/Monat)</li><li>Keyword-Strategie umsetzen</li><li>Erste Seiten auf WordPress</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Sanity CMS + Next.js Setup</li><li>MyFactory API-Integration</li><li>Produktfinder &amp; Konfigurator</li><li>Download-Center aufbauen</li><li>Schema.org + llms.txt</li><li>Launch, Redirects, QA</li></ul></div>
+
+        <div class="roadmap-row-label">Ergebnis</div>
+        <div class="roadmap-cell"><ul><li>Erste Leads m&ouml;glich</li><li>Daten-Baseline steht</li><li>USPs sichtbar</li></ul></div>
+        <div class="roadmap-cell"><ul><li>SEO-Pipeline aktiv</li><li>Branchen-Sichtbarkeit</li><li>Content-Engine l&auml;uft</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Digitaler Vertriebsmitarbeiter live</li><li>6 Sprachen automatisch</li><li>Vollst&auml;ndiger Lead-Funnel</li></ul></div>
       </div>
     </div>
   </div>
@@ -864,16 +1088,24 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
   <div class="slide" data-slide="12">
     <div class="s-badge" data-anim>Workshop-Diskussion</div>
     <div class="s-headline" data-anim style="--d:0.1s">Offene <span class="accent">Fragen</span></div>
-    <div class="s-subtitle" data-anim style="--d:0.15s">Top 5 Diskussionspunkte f&uuml;r heute</div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">14 Diskussionspunkte f&uuml;r den Workshop</div>
     <div class="s-content" style="justify-content:center;">
-      <div class="q-list">
-        <div class="q-block" data-anim style="--d:0.2s"><div class="q-num">1</div><div class="q-text">Relaunch oder Optimierung &mdash; wie weit wollen wir gehen?</div></div>
-        <div class="q-block" data-anim style="--d:0.3s"><div class="q-num">2</div><div class="q-text">Welche 3&ndash;5 Branchen priorisieren?</div></div>
-        <div class="q-block" data-anim style="--d:0.4s"><div class="q-num">3</div><div class="q-text">Welche Sprachen ab Launch kritisch?</div></div>
-        <div class="q-block" data-anim style="--d:0.5s"><div class="q-num">4</div><div class="q-text">Welche Referenz-Webseiten gefallen Ihnen?</div></div>
-        <div class="q-block" data-anim style="--d:0.6s"><div class="q-num">5</div><div class="q-text">Wie soll der Angebotsanfrage-Prozess auf der Website aussehen?</div></div>
+      <div class="q-grid">
+        <div class="q-block" data-anim style="--d:0.15s"><div class="q-num">1</div><div class="q-text">Relaunch oder Optimierung &mdash; wie weit wollen wir gehen?</div></div>
+        <div class="q-block" data-anim style="--d:0.2s"><div class="q-num">2</div><div class="q-text">Laufende Website-Pflege &mdash; wer ist intern verantwortlich?</div></div>
+        <div class="q-block" data-anim style="--d:0.25s"><div class="q-num">3</div><div class="q-text">Welche 3&ndash;5 Branchen haben die h&ouml;chste Priorit&auml;t?</div></div>
+        <div class="q-block" data-anim style="--d:0.3s"><div class="q-num">4</div><div class="q-text">Welche Sprachen sind ab Launch gesch&auml;ftskritisch?</div></div>
+        <div class="q-block" data-anim style="--d:0.35s"><div class="q-num">5</div><div class="q-text">Wer &uuml;bersetzt aktuell die Website-Inhalte?</div></div>
+        <div class="q-block" data-anim style="--d:0.4s"><div class="q-num">6</div><div class="q-text">Welche Referenz-Webseiten gefallen Ihnen?</div></div>
+        <div class="q-block" data-anim style="--d:0.45s"><div class="q-num">7</div><div class="q-text">CRM-Integration &mdash; welches System nutzt der Vertrieb?</div></div>
+        <div class="q-block" data-anim style="--d:0.5s"><div class="q-num">8</div><div class="q-text">Wie soll der Angebotsanfrage-Prozess aussehen?</div></div>
+        <div class="q-block" data-anim style="--d:0.55s"><div class="q-num">9</div><div class="q-text">Messe-Integration &mdash; welche 9 Messen pro Jahr?</div></div>
+        <div class="q-block" data-anim style="--d:0.6s"><div class="q-num">10</div><div class="q-text">Corporate Design &mdash; gibt es ein aktuelles Brand Manual?</div></div>
+        <div class="q-block" data-anim style="--d:0.65s"><div class="q-num">11</div><div class="q-text">ERP-Produktsynchronisation &mdash; MyFactory API verf&uuml;gbar?</div></div>
+        <div class="q-block" data-anim style="--d:0.7s"><div class="q-num">12</div><div class="q-text">Produktkatalog-Umfang &mdash; wie viele SKUs online?</div></div>
+        <div class="q-block" data-anim style="--d:0.75s"><div class="q-num">13</div><div class="q-text">Bestehende Content-Assets &mdash; Fotos, Videos, Whitepaper?</div></div>
+        <div class="q-block" data-anim style="--d:0.8s"><div class="q-num">14</div><div class="q-text">Newsletter &mdash; gibt es eine bestehende E-Mail-Liste?</div></div>
       </div>
-      <div class="hint">Weitere 9 Fragen im Handout</div>
     </div>
   </div>
 
@@ -890,12 +1122,15 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
           <div class="step-row"><div class="step-rail"><div class="step-circle">3</div><div class="step-line"></div></div><div class="step-body"><div class="step-title">Angebot mit priorisierter Roadmap</div><div class="step-desc">Transparente Kostenstruktur und Timeline</div></div></div>
           <div class="step-row"><div class="step-rail"><div class="step-circle">4</div></div><div class="step-body"><div class="step-title">Kick-off Phase 1 &mdash; Quick Wins sofort starten</div><div class="step-desc">Sofort sichtbare Verbesserungen umsetzen</div></div></div>
         </div>
-        <div class="contact-card">
-          <div class="contact-brand">greyt.</div>
-          <div class="contact-divider"></div>
-          <div class="contact-name">Johannes Lorenz</div>
-          <div class="contact-email">johannes.lorenz@greyt.de</div>
-          <div class="contact-phone">+49 1573 6994275</div>
+        <div class="contact-photo-card">
+          <img src="johannes-lorenz.webp" alt="Johannes Lorenz" loading="lazy">
+          <div class="contact-photo-card__info">
+            <div class="contact-brand">greyt.</div>
+            <div class="contact-divider"></div>
+            <div class="contact-name">Johannes Lorenz</div>
+            <div class="contact-email">johannes.lorenz@greyt.de</div>
+            <div class="contact-phone">+49 1573 6994275</div>
+          </div>
         </div>
       </div>
     </div>

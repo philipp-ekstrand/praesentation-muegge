@@ -90,7 +90,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
 /* ===== CONTENT LAYOUT ===== */
 .s-badge {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 18px; border-radius: 20px; font-size: clamp(11px, 0.9vw, 13px);
+  padding: 8px 22px; border-radius: 20px; font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 600; border: 1.5px solid var(--primary-light); color: var(--primary-light);
   margin-bottom: 12px;
 }
@@ -98,13 +98,16 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
   background: var(--dark-bg); color: var(--primary); border-color: var(--dark-bg);
 }
 .s-headline {
-  font-size: clamp(32px, 3.6vw, 52px); font-weight: 900; color: var(--text);
+  font-size: clamp(44px, 5vw, 72px); font-weight: 900; color: var(--text);
   text-align: center; line-height: 1.12; letter-spacing: -0.025em; margin-bottom: 8px;
 }
-.s-headline .accent { color: var(--primary-light); }
+.s-headline .accent {
+  background: linear-gradient(135deg, #1A3A5C 0%, var(--primary) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
 .s-subtitle {
-  font-size: clamp(14px, 1.2vw, 18px); font-weight: 400; color: var(--text-sub);
-  text-align: center; max-width: 700px; line-height: 1.5; margin-bottom: 32px;
+  font-size: clamp(18px, 1.6vw, 24px); font-weight: 400; color: var(--text-sub);
+  text-align: center; max-width: 800px; line-height: 1.5; margin-bottom: 32px;
 }
 .s-content { width: 100%; max-width: 1120px; display: flex; flex-direction: column; }
 
@@ -152,8 +155,8 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
   border-top: 3px solid var(--primary);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.metric-val { font-size: clamp(28px, 3vw, 44px); font-weight: 800; color: var(--dark-bg); line-height: 1; margin-bottom: 6px; }
-.metric-label { font-size: clamp(11px, 0.85vw, 13px); font-weight: 500; color: var(--text-sub); }
+.metric-val { font-size: clamp(40px, 4.5vw, 60px); font-weight: 800; color: var(--dark-bg); line-height: 1; margin-bottom: 6px; }
+.metric-label { font-size: clamp(16px, 1.3vw, 18px); font-weight: 500; color: var(--text-sub); }
 
 /* ===== IMAGE BOX CARD SYSTEM ===== */
 .image-box {
@@ -163,20 +166,23 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
   border: 1px solid var(--border-card);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  padding: 6px 6px 0 6px;
+  --img-fade: #EEF2F5;
 }
 .image-box__image {
   width: 100%; aspect-ratio: 16/9;
-  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-card) 100%);
+  background: var(--dark-bg);
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
+  border-radius: 14px;
 }
-.image-box__image-num {
-  font-size: clamp(48px, 5vw, 72px); font-weight: 900;
-  color: rgba(0,212,255,0.15); position: absolute; right: 20px; bottom: 10px; line-height: 1;
+.image-box__image::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 30%, var(--img-fade) 100%);
+  pointer-events: none; border-radius: 14px;
 }
-.image-box__image-icon {
-  width: 48px; height: 48px; stroke: rgba(0,212,255,0.4); fill: none; stroke-width: 1.5;
-}
+.image-box__image-num { display: none; }
+.image-box__image-icon { display: none; }
 .image-box__icon {
   width: 52px; height: 52px; border-radius: 16px;
   background: var(--primary); display: flex; align-items: center; justify-content: center;
@@ -184,16 +190,16 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
 }
 .image-box__icon svg { width: 24px; height: 24px; stroke: #FFFFFF; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .image-box__badge {
-  display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: 10px;
+  display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 13px;
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
   background: rgba(0,212,255,0.1); color: var(--primary-light); margin-bottom: 8px; width: fit-content;
 }
 .image-box__title {
-  font-size: clamp(15px, 1.3vw, 19px); font-weight: 800; color: var(--text);
+  font-size: clamp(20px, 1.8vw, 26px); font-weight: 800; color: var(--text);
   margin-bottom: 6px; line-height: 1.2;
 }
 .image-box__desc {
-  font-size: clamp(12px, 0.95vw, 14px); color: var(--text-sub); line-height: 1.5;
+  font-size: clamp(16px, 1.3vw, 18px); color: var(--text-sub); line-height: 1.5;
 }
 .image-box__content { padding: 20px 24px; display: flex; flex-direction: column; }
 .image-box__benefit {
@@ -241,16 +247,16 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
 .panel--positive .panel__icon svg { stroke: var(--primary); }
 .panel--neutral .panel__icon svg  { stroke: var(--text-sub); }
 .panel--critical .panel__icon svg { stroke: var(--dark-bg); }
-.panel-head { font-size: clamp(13px, 1.1vw, 16px); font-weight: 700; margin-bottom: 12px; color: var(--text); }
-.panel ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-.panel li { font-size: clamp(11px, 0.85vw, 13px); line-height: 1.5; padding-left: 16px; position: relative; color: var(--text-sub); }
-.panel li::before { content:''; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; }
-.panel--positive li::before { background: var(--primary); }
-.panel--neutral li::before  { background: var(--text-muted); }
-.panel--critical li::before { background: var(--dark-bg); }
+.panel-head { font-size: clamp(18px, 1.5vw, 22px); font-weight: 700; margin-bottom: 12px; color: var(--text); }
+.panel ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.panel li { font-size: clamp(16px, 1.3vw, 18px); line-height: 1.5; padding-left: 22px; position: relative; color: var(--text-sub); }
+.panel li::before { content:''; position: absolute; left: 0; top: 4px; width: 14px; height: 14px; border-radius: 0; }
+.panel--positive li::before { background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center/contain; }
+.panel--neutral li::before  { background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23F59E0B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z'/%3E%3Cline x1='12' y1='9' x2='12' y2='13'/%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'/%3E%3C/svg%3E") no-repeat center/contain; }
+.panel--critical li::before { background: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='none' stroke='%23EF4444' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E") no-repeat center/contain; }
 
 /* ===== TABLE ===== */
-table.cmp { width: 100%; border-collapse: collapse; font-size: clamp(12px, 1vw, 15px); }
+table.cmp { width: 100%; border-collapse: collapse; font-size: clamp(15px, 1.2vw, 17px); }
 table.cmp thead th { text-align: left; padding: 12px 16px; font-weight: 700; background: var(--dark-bg); color: var(--white); }
 table.cmp thead th:first-child { width: 38%; border-radius: 8px 0 0 0; }
 table.cmp thead th:last-child { border-radius: 0 8px 0 0; }
@@ -262,7 +268,7 @@ table.cmp .feat-icon { width: 16px; height: 16px; stroke: var(--primary); fill: 
 .t-warn { color: var(--warning); font-weight: 700; }
 
 /* KPI Table */
-table.kpi { width: 100%; border-collapse: collapse; font-size: clamp(13px, 1.1vw, 16px); }
+table.kpi { width: 100%; border-collapse: collapse; font-size: clamp(16px, 1.3vw, 19px); }
 table.kpi thead th { text-align: center; padding: 14px 16px; font-weight: 700; color: var(--white); background: var(--dark-bg); }
 table.kpi thead th:first-child { text-align: left; border-radius: 12px 0 0 0; }
 table.kpi thead th:last-child  { border-radius: 0 12px 0 0; }
@@ -286,11 +292,11 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 .scope-item__icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .scope-item__text { font-size: clamp(11px, 0.9vw, 13px); font-weight: 600; color: var(--text); line-height: 1.3; }
 .constraints-bar {
-  width: 100%; padding: 14px 24px; background: rgba(10,21,35,0.04);
-  border: 1px solid rgba(10,21,35,0.08); border-radius: 12px;
+  width: 100%; padding: 16px 28px; background: rgba(0,212,255,0.08);
+  border: 1px solid rgba(0,212,255,0.15); border-radius: 12px; margin-top: 20px;
   display: flex; flex-wrap: wrap; gap: 8px 24px;
 }
-.constraints-bar span { font-size: 12px; color: var(--text-sub); }
+.constraints-bar span { font-size: 16px; color: var(--text-sub); }
 .constraints-bar span::before { content: '—'; margin-right: 6px; color: var(--text-muted); }
 
 /* ===== TIMELINE ===== */
@@ -309,9 +315,9 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 
 /* ===== QUESTIONS ===== */
 .q-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
-.q-block { display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; border-left: 4px solid var(--primary); box-shadow: 0 2px 12px rgba(0,0,0,0.04); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-.q-num { font-size: clamp(20px, 2vw, 28px); font-weight: 800; color: var(--primary-light); min-width: 32px; }
-.q-text { font-size: clamp(14px, 1.2vw, 18px); font-weight: 600; color: var(--text); }
+.q-block { display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: linear-gradient(135deg, var(--dark-bg) 0%, #132844 50%, var(--dark-bg) 100%); border: 1px solid rgba(0,212,255,0.12); border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.q-num { font-size: clamp(22px, 2vw, 30px); font-weight: 800; color: var(--primary); min-width: 32px; }
+.q-text { font-size: clamp(16px, 1.3vw, 19px); font-weight: 600; color: var(--white); }
 
 /* ===== STEPS ===== */
 .steps-vt { display: flex; flex-direction: column; gap: 0; width: 100%; max-width: 800px; }
@@ -321,13 +327,13 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 .step-circle { width: 40px; height: 40px; border-radius: 50%; background: var(--dark-bg); color: var(--primary); font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 2; }
 .step-line { width: 2px; flex: 1; background: var(--border-card); min-height: 20px; }
 .step-body { padding-top: 8px; }
-.step-title { font-size: clamp(15px, 1.3vw, 18px); font-weight: 700; color: var(--text); }
-.step-desc { font-size: clamp(12px, 1vw, 14px); color: var(--text-sub); margin-top: 2px; }
+.step-title { font-size: clamp(20px, 1.7vw, 24px); font-weight: 700; color: var(--text); }
+.step-desc { font-size: clamp(16px, 1.3vw, 18px); color: var(--text-sub); margin-top: 2px; }
 
 /* ===== FAZIT ===== */
-.fazit { background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.15); border-radius: 12px; padding: 14px 24px; width: 100%; margin-top: 12px; text-align: center; }
-.fazit p { font-size: clamp(12px, 1vw, 15px); color: var(--text); }
-.fazit strong { color: var(--primary-light); }
+.fazit { background: var(--dark-bg); border: 1px solid rgba(0,212,255,0.15); border-radius: 12px; padding: 18px 28px; width: 100%; margin-top: 20px; text-align: center; }
+.fazit p { font-size: clamp(17px, 1.4vw, 20px); color: var(--white); }
+.fazit strong { color: var(--primary); }
 
 /* ===== CONTACT ===== */
 .contact-card { background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 16px; padding: 32px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 4px; }
@@ -336,36 +342,36 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 .contact-name { font-size: 16px; font-weight: 600; color: var(--text); }
 .contact-email { font-size: 14px; color: var(--primary-light); font-weight: 500; }
 .contact-phone { font-size: 14px; color: var(--text-sub); }
-.split-55-40 { display: grid; grid-template-columns: 55% 40%; gap: 5%; width: 100%; align-items: start; }
+.split-55-40 { display: grid; grid-template-columns: 55% 40%; gap: 5%; width: 100%; align-items: center; }
 
 .hint { font-size: clamp(11px, 0.85vw, 13px); color: var(--text-muted); font-style: italic; margin-top: 10px; }
 
 /* ===== FORMULA ROW ===== */
 .formula-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
-.formula-chip { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 999px; border: 1.5px solid var(--border-card); font-size: clamp(14px, 1.2vw, 17px); font-weight: 600; color: var(--text); background: var(--white); }
+.formula-chip { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 999px; border: 1.5px solid var(--border-card); font-size: clamp(18px, 1.5vw, 22px); font-weight: 600; color: var(--text); background: var(--white); }
 .formula-chip--filled { background: var(--dark-bg); color: var(--primary); border-color: var(--dark-bg); box-shadow: 0 4px 16px rgba(0,212,255,0.2); }
 .formula-op { font-size: 20px; font-weight: 300; color: var(--text-muted); }
 
 /* ===== CARD BACKGROUND IMAGES ===== */
 [data-img] .image-box__image { background-size: cover !important; background-position: center !important; }
-[data-img="muegge1"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.6), rgba(15,31,53,0.5)), url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-muegge-01.jpg) !important; }
-[data-img="muegge2"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.55), rgba(15,31,53,0.45)), url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-muegge-02-1024x683.jpg) !important; }
-[data-img="wafer"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.5), rgba(15,31,53,0.4)), url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-wafer-muegge-770x1024.jpg) !important; }
-[data-img="analytics"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="strategy"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="digital"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.65), rgba(15,31,53,0.55)), url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="ui"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="industry"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="globe"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="ai"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.65), rgba(15,31,53,0.55)), url(https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="content"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.7), rgba(15,31,53,0.6)), url(https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="conference"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.65), rgba(15,31,53,0.55)), url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="code"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.65), rgba(15,31,53,0.55)), url(https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&h=340&q=80) !important; }
-[data-img="muegge-messe"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.55), rgba(15,31,53,0.45)), url(https://muegge-group.com/wp-content/uploads/2024/04/ICRC_Messerueckblick.jpg) !important; }
-[data-img="muegge-3d-gen"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.5), rgba(15,31,53,0.4)), url(https://muegge-group.com/wp-content/uploads/2024/03/Mikrowelle-3D-Rendering_MH6000S_Muegge_200219-1.png) !important; }
-[data-img="muegge-3d-plasma"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.5), rgba(15,31,53,0.4)), url(https://muegge-group.com/wp-content/uploads/2024/03/Plasma-System-3D-Rendering_MA1250D_Muegge_200219.png) !important; }
-[data-img="muegge-team"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.6), rgba(15,31,53,0.5)), url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-ausbildung-muegge.jpg) !important; }
-[data-img="muegge-hq"] .image-box__image { background-image: linear-gradient(135deg, rgba(10,21,35,0.55), rgba(15,31,53,0.45)), url(https://muegge-group.com/wp-content/uploads/2024/03/global-vernetzt-lokal-erreichbar-muegge-reichelsheim.jpg) !important; }
+[data-img="muegge1"] .image-box__image { background-image: url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-muegge-01.jpg) !important; }
+[data-img="muegge2"] .image-box__image { background-image: url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-muegge-02-1024x683.jpg) !important; }
+[data-img="wafer"] .image-box__image { background-image: url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-wafer-muegge-770x1024.jpg) !important; }
+[data-img="analytics"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="strategy"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="digital"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="ui"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="industry"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="globe"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="ai"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="content"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="conference"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="code"] .image-box__image { background-image: url(https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&h=340&q=80) !important; }
+[data-img="muegge-messe"] .image-box__image { background-image: url(https://muegge-group.com/wp-content/uploads/2024/04/ICRC_Messerueckblick.jpg) !important; }
+[data-img="muegge-3d-gen"] .image-box__image { background-image: url(https://muegge-group.com/wp-content/uploads/2024/03/Mikrowelle-3D-Rendering_MH6000S_Muegge_200219-1.png) !important; }
+[data-img="muegge-3d-plasma"] .image-box__image { background-image: url(https://muegge-group.com/wp-content/uploads/2024/03/Plasma-System-3D-Rendering_MA1250D_Muegge_200219.png) !important; }
+[data-img="muegge-team"] .image-box__image { background-image: url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-ausbildung-muegge.jpg) !important; }
+[data-img="muegge-hq"] .image-box__image { background-image: url(https://muegge-group.com/wp-content/uploads/2024/03/global-vernetzt-lokal-erreichbar-muegge-reichelsheim.jpg) !important; }
 
 /* ===== ENTRANCE ANIMATIONS ===== */
 @keyframes slide-fade-up {
@@ -397,20 +403,19 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 [data-slide="3"] .panel { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.15); }
 [data-slide="3"] .panel__icon { background: rgba(0,212,255,0.12); }
 [data-slide="3"] .panel__icon svg { stroke: var(--primary) !important; }
-[data-slide="3"] .panel li { font-size: clamp(12px, 0.95vw, 14px); }
-[data-slide="3"] .panel li::before { background: var(--primary) !important; }
-[data-slide="3"] .panel-head { font-size: clamp(14px, 1.2vw, 17px); }
+[data-slide="3"] .panel li { font-size: clamp(16px, 1.3vw, 18px); }
+[data-slide="3"] .panel-head { font-size: clamp(18px, 1.5vw, 22px); }
 
 /* ===== SLIDE 5: TABLE ENHANCEMENTS ===== */
 table.cmp .feat-icon { stroke: var(--dark-bg); }
-.feat-desc { display: block; font-size: clamp(10px, 0.75vw, 12px); color: var(--text-muted); font-weight: 400; margin-top: 2px; line-height: 1.3; }
+.feat-desc { display: block; font-size: clamp(13px, 1vw, 15px); color: var(--text-muted); font-weight: 400; margin-top: 2px; line-height: 1.3; }
 .table-scroll { max-height: calc(100vh - 260px); overflow-y: auto; width: 100%; border-radius: 8px; }
 .table-scroll::-webkit-scrollbar { width: 4px; }
 .table-scroll::-webkit-scrollbar-thumb { background: var(--border-card); border-radius: 2px; }
 
 /* ===== SLIDE 7 VISION 1: IMAGE BOXES ===== */
 [data-slide="6"] .constraints-bar span::before { content: none; }
-.constraints-bar .cb-check { width: 14px; height: 14px; stroke: var(--success); fill: none; stroke-width: 2.5; vertical-align: middle; margin-right: 6px; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+.constraints-bar .cb-check { width: 16px; height: 16px; stroke: var(--danger); fill: none; stroke-width: 2.5; vertical-align: middle; margin-right: 8px; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
 [data-slide="6"] .constraints-bar { align-items: center; }
 [data-slide="6"] .constraints-bar span { display: inline-flex; align-items: center; }
 
@@ -436,14 +441,14 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
 /* ===== SLIDES 9-10: ENHANCED BENEFITS ===== */
 .image-box__benefit-section { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border-card); }
 .image-box__benefit-heading {
-  display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: 10px;
+  display: inline-block; padding: 4px 14px; border-radius: 999px; font-size: 13px;
   font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
   background: rgba(0,212,255,0.1); color: var(--dark-bg); margin-bottom: 6px;
 }
 .image-box__benefit-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 3px; }
 .image-box__benefit-list li {
-  font-size: clamp(11px, 0.8vw, 12px); font-weight: 500; color: var(--dark-bg);
-  line-height: 1.4; padding-left: 18px; position: relative;
+  font-size: clamp(15px, 1.2vw, 17px); font-weight: 500; color: var(--dark-bg);
+  line-height: 1.4; padding-left: 22px; position: relative;
 }
 .image-box__benefit-list li::before {
   content: ''; position: absolute; left: 2px; top: 3px; width: 10px; height: 10px;
@@ -452,10 +457,10 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
 
 /* ===== SLIDE 11: ROADMAP REDESIGN ===== */
 .roadmap-header { display: grid; grid-template-columns: 140px repeat(3, 1fr); gap: 0; width: 100%; }
-.roadmap-label-header { padding: 14px 16px; font-weight: 700; color: var(--text); background: var(--bg-card); border-radius: 8px 0 0 0; font-size: clamp(12px, 1vw, 14px); }
+.roadmap-label-header { padding: 14px 16px; font-weight: 700; color: var(--text); background: var(--bg-card); border-radius: 8px 0 0 0; font-size: clamp(16px, 1.3vw, 18px); }
 .roadmap-phase-header {
   padding: 14px 20px 14px 28px; color: var(--white); font-weight: 700;
-  font-size: clamp(13px, 1.1vw, 16px); position: relative;
+  font-size: clamp(17px, 1.4vw, 20px); position: relative;
   clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%, 16px 50%);
 }
 .roadmap-phase-header:nth-child(2) { clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 50%, calc(100% - 16px) 100%, 0 100%); border-radius: 0; background: var(--dark-bg); }
@@ -464,23 +469,23 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
 .roadmap-phase-header small { font-weight: 400; opacity: 0.8; font-size: clamp(10px, 0.8vw, 12px); }
 .roadmap-body { display: grid; grid-template-columns: 140px repeat(3, 1fr); gap: 0; width: 100%; }
 .roadmap-row-label {
-  padding: 12px 16px; font-weight: 700; font-size: clamp(11px, 0.9vw, 13px);
+  padding: 14px 16px; font-weight: 700; font-size: clamp(16px, 1.3vw, 18px);
   color: var(--text); background: var(--bg-card); border-bottom: 1px solid var(--border-card);
   display: flex; align-items: flex-start;
 }
 .roadmap-cell {
-  padding: 10px 14px; border-bottom: 1px solid var(--border-card);
-  border-left: 1px solid var(--border-card); font-size: clamp(11px, 0.8vw, 12px); color: var(--text-sub);
+  padding: 12px 16px; border-bottom: 1px solid var(--border-card);
+  border-left: 1px solid var(--border-card); font-size: clamp(15px, 1.2vw, 17px); color: var(--text-sub);
 }
 .roadmap-cell ul { list-style: none; padding: 0; margin: 0; }
 .roadmap-cell li { padding-left: 12px; position: relative; margin-bottom: 2px; line-height: 1.4; }
 .roadmap-cell li::before { content: ''; position: absolute; left: 0; top: 6px; width: 5px; height: 5px; border-radius: 50%; background: var(--primary); }
 
 /* ===== SLIDE 13: 2-COLUMN QUESTIONS ===== */
-.q-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 14px; width: 100%; }
-.q-grid .q-block { padding: 12px 16px; }
-.q-grid .q-num { font-size: clamp(16px, 1.5vw, 22px); min-width: 28px; }
-.q-grid .q-text { font-size: clamp(12px, 1vw, 15px); }
+.q-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 16px; width: 100%; }
+.q-grid .q-block { padding: 14px 20px; }
+.q-grid .q-num { font-size: clamp(22px, 2vw, 30px); min-width: 32px; }
+.q-grid .q-text { font-size: clamp(16px, 1.3vw, 19px); }
 
 /* ===== SLIDE 14: PHOTO CONTACT CARD ===== */
 .contact-photo-card {
@@ -488,15 +493,24 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
   border-radius: 16px; overflow: hidden; display: flex; flex-direction: column;
   align-items: center; text-align: center;
 }
-.contact-photo-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top; }
+.contact-photo-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top center; }
 .contact-photo-card__info { padding: 16px 24px; }
 
-/* ===== SLIDE 2: BACKGROUND IMAGES ===== */
-[data-slide="1"] { position: absolute; }
+/* ===== SLIDE 2: DARK MODE + BACKGROUND IMAGES ===== */
+[data-slide="1"] { position: absolute; background: var(--dark-bg); }
+[data-slide="1"] .s-badge { border-color: var(--primary); color: var(--primary); }
+[data-slide="1"] .s-headline { color: var(--white); }
+[data-slide="1"] .s-headline .accent {
+  background: linear-gradient(135deg, var(--primary-lighter) 0%, var(--primary) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+[data-slide="1"] .formula-chip { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: var(--white); }
+[data-slide="1"] .formula-chip--filled { background: linear-gradient(135deg, #1A3A5C, var(--primary)); border-color: transparent; color: var(--white); }
+[data-slide="1"] .formula-op { color: rgba(255,255,255,0.4); }
 [data-slide="1"]::before {
   content: ''; position: absolute; top: -3%; right: -3%; width: 40%; height: 55%;
   background: url(https://muegge-group.com/wp-content/uploads/2019/12/mikrowellen-plasmasysteme-muegge-01.jpg) center/cover no-repeat;
-  opacity: 0.08; border-radius: 20px; transform: rotate(5deg); pointer-events: none; z-index: 0;
+  opacity: 0.12; border-radius: 20px; transform: rotate(5deg); pointer-events: none; z-index: 0;
 }
 [data-slide="1"]::after {
   content: ''; position: absolute; bottom: 8%; left: -2%; width: 35%; height: 50%;
@@ -569,11 +583,11 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     <div class="s-badge" data-anim>Unser Ziel f&uuml;r MUEGGE</div>
     <div class="s-headline" data-anim style="--d:0.1s">Ihre Website zum<br><span class="accent">Vertriebstool machen</span><br>das 24/7 Leads liefert</div>
     <div class="formula-row" data-anim style="--d:0.25s">
-      <div class="formula-chip">&#128269; Sichtbarkeit</div>
+      <div class="formula-chip"><svg style="width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Sichtbarkeit</div>
       <div class="formula-op">+</div>
-      <div class="formula-chip">&#127919; Conversion</div>
+      <div class="formula-chip"><svg style="width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Conversion</div>
       <div class="formula-op">=</div>
-      <div class="formula-chip formula-chip--filled">&#128200; Wachstum</div>
+      <div class="formula-chip formula-chip--filled"><svg style="width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Wachstum</div>
     </div>
   </div>
 
@@ -716,6 +730,8 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
           <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>Newsletter<span class="feat-desc">Regelm&auml;&szlig;ige Updates an Interessenten und Kunden</span></td><td class="t-no">&#10005;</td><td class="t-yes">&#10003;</td></tr>
           <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>Mega-Men&uuml;<span class="feat-desc">Sichtbare Navigation mit allen Bereichen auf einen Blick</span></td><td class="t-no">&#10005; Off-Canvas</td><td class="t-yes">&#10003; Sichtbar</td></tr>
           <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Messe-Kalender<span class="feat-desc">Strukturierte &Uuml;bersicht kommender Events</span></td><td class="t-warn">&#9888; Nur Fotos</td><td class="t-yes">&#10003; Strukturiert</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Blog / Fachartikel<span class="feat-desc">Regelm&auml;&szlig;ige Fachbeitr&auml;ge f&uuml;r SEO und Thought Leadership</span></td><td class="t-no">&#10005;</td><td class="t-yes">&#10003; Regelm&auml;&szlig;ig</td></tr>
+          <tr><td><svg class="feat-icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>Schema.org / AI-Discoverability<span class="feat-desc">Strukturierte Daten f&uuml;r Suchmaschinen und KI-Assistenten</span></td><td class="t-no">&#10005;</td><td class="t-warn">&#9888; Teilweise</td></tr>
         </tbody>
       </table>
       </div>
@@ -776,7 +792,7 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     <div class="s-headline" data-anim style="--d:0.1s">Bestehende Website <span class="accent">aufwerten</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">WordPress + Elementor bleibt. Fokus auf Content und Conversion.</div>
     <div class="s-content">
-      <div style="font-size:clamp(14px,1.2vw,17px);font-weight:700;color:var(--text);margin-bottom:10px;align-self:flex-start" data-anim style="--d:0.2s">Was sich &auml;ndert</div>
+      <div style="font-size:clamp(20px,1.6vw,24px);font-weight:700;color:var(--text);margin-bottom:14px;text-align:center;width:100%" data-anim style="--d:0.2s">Was sich &auml;ndert</div>
       <div class="grid-3" data-anim style="--d:0.25s">
         <div class="image-box" data-img="muegge1">
           <div class="image-box__image" style="aspect-ratio:2/1"></div>
@@ -822,32 +838,32 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
         </div>
       </div>
       <div class="constraints-bar" data-anim style="--d:0.35s">
-        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Off-Canvas-Navigation bleibt</span>
-        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Mehrsprachigkeit bleibt manuell</span>
-        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Produkt-Import bleibt CSV</span>
-        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Keine ERP-Integration</span>
-        <span><svg class="cb-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Keine Vertriebsautomation</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Off-Canvas-Navigation bleibt</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Mehrsprachigkeit bleibt manuell</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Produkt-Import bleibt CSV</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Keine ERP-Integration</span>
+        <span><svg class="cb-check" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Keine Vertriebsautomation</span>
       </div>
       <div class="fazit" data-anim style="--d:0.4s"><p><strong>Fazit:</strong> Mehr Traffic und Sichtbarkeit, erste Leads. Aber die Website bleibt informierend &mdash; kein echtes Vertriebstool.</p></div>
     </div>
   </div>
 
-  <!-- === SLIDE 8: VISION 2 OVERVIEW === -->
+  <!-- === SLIDE 8: VISION 2 MODULE 1-3 === -->
   <div class="slide" data-slide="7">
     <div class="s-badge--filled s-badge" data-anim>Vision 2 &mdash; Empfohlen</div>
     <div class="s-headline" data-anim style="--d:0.1s">Die Website als <span class="accent">digitaler Vertriebsmitarbeiter</span></div>
-    <div class="s-subtitle" data-anim style="--d:0.15s">Sechs Module f&uuml;r qualifizierte Leads rund um die Uhr</div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Module 1&ndash;3: Nutzerf&uuml;hrung, Produktfinder &amp; KI-Erkennung</div>
     <div class="s-content" style="justify-content:center;">
-      <div class="grid-3x2">
-        <div class="image-box--noah" data-anim="scale" style="--d:0.2s" data-img="muegge1">
+      <div class="grid-3">
+        <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="muegge1">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
             <div class="image-box__title">Intelligente Nutzerf&uuml;hrung</div>
-            <div class="image-box__desc">Mega-Men&uuml;, Branchen-Entry-Points, dynamische Inhalte</div>
+            <div class="image-box__desc">Mega-Men&uuml;, Branchen-Entry-Points, dynamische Inhalte f&uuml;r jeden Besucher</div>
           </div>
         </div>
-        <div class="image-box--noah" data-anim="scale" style="--d:0.3s" data-img="muegge-3d-gen">
+        <div class="image-box" data-anim="scale" style="--d:0.3s" data-img="muegge-3d-gen">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
@@ -855,44 +871,55 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
             <div class="image-box__desc">Gef&uuml;hrte Auswahl, Self-Service Anfrage, Live-Daten aus ERP</div>
           </div>
         </div>
-        <div class="image-box--noah" data-anim="scale" style="--d:0.4s" data-img="ai">
+        <div class="image-box" data-anim="scale" style="--d:0.4s" data-img="ai">
           <div class="image-box__image"></div>
           <div class="image-box__content">
             <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
             <div class="image-box__title">KI-Besuchererkennung</div>
-            <div class="image-box__desc">B2B-Firmenidentifikation, Intent-Scoring, CRM-Integration</div>
-          </div>
-        </div>
-        <div class="image-box--noah" data-anim="scale" style="--d:0.35s" data-img="content">
-          <div class="image-box__image"></div>
-          <div class="image-box__content">
-            <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-            <div class="image-box__title">Content-Engine &amp; Nurturing</div>
-            <div class="image-box__desc">Download-Center, Gated Content, Newsletter-Automation</div>
-          </div>
-        </div>
-        <div class="image-box--noah" data-anim="scale" style="--d:0.45s" data-img="muegge-messe">
-          <div class="image-box__image"></div>
-          <div class="image-box__content">
-            <div class="image-box__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-            <div class="image-box__title">Messe-Integration</div>
-            <div class="image-box__desc">Landing Page pro Messe, QR-Tracking, Post-Messe-Nurturing</div>
-          </div>
-        </div>
-        <div class="image-box--noah" data-anim="scale" style="--d:0.55s" data-img="muegge-3d-plasma">
-          <div class="image-box__image"></div>
-          <div class="image-box__content">
-            <div class="image-box__icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-            <div class="image-box__title">Technisches Fundament</div>
-            <div class="image-box__desc">Sanity + Next.js, &Uuml;bersetzungs-Automation, ERP-Sync</div>
+            <div class="image-box__desc">B2B-Firmenidentifikation, Intent-Scoring, automatische CRM-Integration</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- === SLIDE 9: MODULE 1-3 === -->
+  <!-- === SLIDE 9: VISION 2 MODULE 4-6 === -->
   <div class="slide" data-slide="8">
+    <div class="s-badge--filled s-badge" data-anim>Vision 2 &mdash; Empfohlen</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Content, Messen <span class="accent">&amp; Technik</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Module 4&ndash;6: Content-Engine, Messe-Integration &amp; Tech-Fundament</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="grid-3">
+        <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="content">
+          <div class="image-box__image"></div>
+          <div class="image-box__content">
+            <div class="image-box__icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="image-box__title">Content-Engine &amp; Nurturing</div>
+            <div class="image-box__desc">Download-Center, Gated Content, segmentierte Newsletter-Automation</div>
+          </div>
+        </div>
+        <div class="image-box" data-anim="scale" style="--d:0.3s" data-img="muegge-messe">
+          <div class="image-box__image"></div>
+          <div class="image-box__content">
+            <div class="image-box__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div class="image-box__title">Messe-Integration</div>
+            <div class="image-box__desc">Dedizierte Landing Pages, QR-Tracking, Post-Messe-Nurturing</div>
+          </div>
+        </div>
+        <div class="image-box" data-anim="scale" style="--d:0.4s" data-img="muegge-3d-plasma">
+          <div class="image-box__image"></div>
+          <div class="image-box__content">
+            <div class="image-box__icon"><svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+            <div class="image-box__title">Technisches Fundament</div>
+            <div class="image-box__desc">Sanity + Next.js, automatisierte &Uuml;bersetzung, ERP-Sync</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 10: MODULE 1-3 DETAIL === -->
+  <div class="slide" data-slide="9">
     <div class="s-badge" data-anim>Module im Detail</div>
     <div class="s-headline" data-anim style="--d:0.1s">Von der Nutzerf&uuml;hrung <span class="accent">bis zum Lead</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Module 1&ndash;3: Nutzerf&uuml;hrung, Produktfinder &amp; Lead Intelligence</div>
@@ -962,8 +989,8 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     </div>
   </div>
 
-  <!-- === SLIDE 10: MODULE 4-6 === -->
-  <div class="slide" data-slide="9">
+  <!-- === SLIDE 11: MODULE 4-6 DETAIL === -->
+  <div class="slide" data-slide="10">
     <div class="s-badge" data-anim>Module im Detail</div>
     <div class="s-headline" data-anim style="--d:0.1s">Content, Messen <span class="accent">&amp; Technik</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Module 4&ndash;6: Content-Engine, Messe-Integration &amp; Tech-Fundament</div>
@@ -1034,39 +1061,66 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     </div>
   </div>
 
-  <!-- === SLIDE 11: ROADMAP === -->
-  <div class="slide" data-slide="10">
-    <div class="s-badge" data-anim>Roadmap</div>
-    <div class="s-headline" data-anim style="--d:0.1s">Priorisierte Umsetzung in <span class="accent">3 Phasen</span></div>
-    <div class="s-subtitle" data-anim style="--d:0.15s">Phasen laufen teilweise parallel. Gesamtzeitraum ca. 4&ndash;6 Monate.</div>
+  <!-- === SLIDE 12: ROADMAP VISION 1 === -->
+  <div class="slide" data-slide="11">
+    <div class="s-badge" data-anim>Roadmap &mdash; Vision 1</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Bestehende Website <span class="accent">optimieren</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">WordPress + Elementor bleibt. Fokus auf Content und Conversion.</div>
     <div class="s-content" style="justify-content:center;">
-      <div class="roadmap-header" data-anim style="--d:0.25s">
+      <div class="roadmap-header" data-anim style="--d:0.25s; grid-template-columns: 160px repeat(2, 1fr);">
         <div class="roadmap-label-header"></div>
-        <div class="roadmap-phase-header">Phase 1 &mdash; Quick Wins<br><small>2&ndash;4 Wochen</small></div>
-        <div class="roadmap-phase-header">Phase 2 &mdash; Konzept &amp; Content<br><small>4&ndash;8 Wochen</small></div>
-        <div class="roadmap-phase-header">Phase 3 &mdash; Relaunch<br><small>8&ndash;12 Wochen</small></div>
+        <div class="roadmap-phase-header">Phase 1 &mdash; Quick Wins</div>
+        <div class="roadmap-phase-header">Phase 2 &mdash; Content-Ausbau</div>
       </div>
-      <div class="roadmap-body" data-anim style="--d:0.35s">
+      <div class="roadmap-body" data-anim style="--d:0.35s; grid-template-columns: 160px repeat(2, 1fr);">
         <div class="roadmap-row-label">Fokus</div>
         <div class="roadmap-cell"><ul><li>Conversion-Barrieren entfernen</li><li>Tracking-Basis schaffen</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Informationsarchitektur &amp; Sitemap</li><li>SEO-Strategie pro Branche</li><li>Content-Produktion starten</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Tech-Migration auf Sanity + Next.js</li><li>ERP-Integration &amp; Automation</li><li>&Uuml;bersetzungs-Workflow</li></ul></div>
+        <div class="roadmap-cell"><ul><li>SEO-Strategie pro Branche</li><li>Content-Produktion starten</li></ul></div>
 
         <div class="roadmap-row-label">Ma&szlig;nahmen</div>
-        <div class="roadmap-cell"><ul><li>Kontaktformular einbetten</li><li>Turnstile statt reCAPTCHA</li><li>301-Redirects bereinigen</li><li>After-Sales-USP auf Startseite</li><li>GA4 + Server-Side GTM</li><li>Platzhalter &rarr; echte Fotos</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Mega-Men&uuml;-Struktur</li><li>8&ndash;10 Branchen-LPs texten</li><li>Blog starten (2/Monat)</li><li>Keyword-Strategie umsetzen</li><li>Erste Seiten auf WordPress</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Sanity CMS + Next.js Setup</li><li>MyFactory API-Integration</li><li>Produktfinder &amp; Konfigurator</li><li>Download-Center aufbauen</li><li>Schema.org + llms.txt</li><li>Launch, Redirects, QA</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Kontaktformular direkt einbetten</li><li>Turnstile statt reCAPTCHA</li><li>301-Redirects bereinigen</li><li>After-Sales-USP auf Startseite</li><li>GA4 + Server-Side GTM</li></ul></div>
+        <div class="roadmap-cell"><ul><li>8&ndash;10 Branchen-Landing-Pages</li><li>Blog starten (2 Artikel/Monat)</li><li>Keyword-Strategie umsetzen</li><li>Produktseiten mit echten Fotos</li></ul></div>
 
         <div class="roadmap-row-label">Ergebnis</div>
-        <div class="roadmap-cell"><ul><li>Erste Leads m&ouml;glich</li><li>Daten-Baseline steht</li><li>USPs sichtbar</li></ul></div>
-        <div class="roadmap-cell"><ul><li>SEO-Pipeline aktiv</li><li>Branchen-Sichtbarkeit</li><li>Content-Engine l&auml;uft</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Digitaler Vertriebsmitarbeiter live</li><li>6 Sprachen automatisch</li><li>Vollst&auml;ndiger Lead-Funnel</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Erste Leads m&ouml;glich</li><li>Daten-Baseline steht</li></ul></div>
+        <div class="roadmap-cell"><ul><li>SEO-Pipeline aktiv</li><li>Branchen-Sichtbarkeit w&auml;chst</li></ul></div>
       </div>
     </div>
   </div>
 
-  <!-- === SLIDE 12: ZIELWERTE === -->
-  <div class="slide" data-slide="11">
+  <!-- === SLIDE 13: ROADMAP VISION 2 === -->
+  <div class="slide" data-slide="12">
+    <div class="s-badge--filled s-badge" data-anim>Roadmap &mdash; Vision 2</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Komplett-Relaunch <span class="accent">in 3 Phasen</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Neuer Tech-Stack, ERP-Integration, automatisierte &Uuml;bersetzung</div>
+    <div class="s-content" style="justify-content:center;">
+      <div class="roadmap-header" data-anim style="--d:0.25s">
+        <div class="roadmap-label-header"></div>
+        <div class="roadmap-phase-header">Phase 1 &mdash; Konzept</div>
+        <div class="roadmap-phase-header">Phase 2 &mdash; Entwicklung</div>
+        <div class="roadmap-phase-header">Phase 3 &mdash; Launch</div>
+      </div>
+      <div class="roadmap-body" data-anim style="--d:0.35s">
+        <div class="roadmap-row-label">Fokus</div>
+        <div class="roadmap-cell"><ul><li>Informationsarchitektur</li><li>Sitemap &amp; Wireframes</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Sanity CMS + Next.js</li><li>ERP-Integration</li><li>&Uuml;bersetzungs-Automation</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Migration &amp; Redirects</li><li>QA &amp; Go-Live</li></ul></div>
+
+        <div class="roadmap-row-label">Ma&szlig;nahmen</div>
+        <div class="roadmap-cell"><ul><li>Mega-Men&uuml;-Struktur</li><li>SEO-Keyword-Strategie</li><li>Content-Planung</li></ul></div>
+        <div class="roadmap-cell"><ul><li>MyFactory API-Anbindung</li><li>Produktfinder &amp; Konfigurator</li><li>Download-Center</li><li>Schema.org + llms.txt</li></ul></div>
+        <div class="roadmap-cell"><ul><li>301-Redirects</li><li>Performance-Tests</li><li>6 Sprachversionen live</li></ul></div>
+
+        <div class="roadmap-row-label">Ergebnis</div>
+        <div class="roadmap-cell"><ul><li>Klare Roadmap steht</li><li>Content-Pipeline l&auml;uft</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Tech-Plattform bereit</li><li>Erste Module testbar</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Digitaler Vertriebsmitarbeiter live</li><li>Vollst&auml;ndiger Lead-Funnel</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- === SLIDE 14: ZIELWERTE === -->
+  <div class="slide" data-slide="13">
     <div class="s-badge" data-anim>Messbare Ergebnisse</div>
     <div class="s-headline" data-anim style="--d:0.1s"><span class="accent">Zielwerte</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Erwartete KPIs nach Umsetzung</div>
@@ -1084,8 +1138,8 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     </div>
   </div>
 
-  <!-- === SLIDE 13: OFFENE FRAGEN === -->
-  <div class="slide" data-slide="12">
+  <!-- === SLIDE 15: OFFENE FRAGEN === -->
+  <div class="slide" data-slide="14">
     <div class="s-badge" data-anim>Workshop-Diskussion</div>
     <div class="s-headline" data-anim style="--d:0.1s">Offene <span class="accent">Fragen</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">14 Diskussionspunkte f&uuml;r den Workshop</div>
@@ -1109,8 +1163,8 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     </div>
   </div>
 
-  <!-- === SLIDE 14: NÄCHSTE SCHRITTE === -->
-  <div class="slide" data-slide="13">
+  <!-- === SLIDE 16: NÄCHSTE SCHRITTE === -->
+  <div class="slide" data-slide="15">
     <div class="s-badge" data-anim>Ausblick</div>
     <div class="s-headline" data-anim style="--d:0.1s">N&auml;chste <span class="accent">Schritte</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Ihr Weg zur optimierten Website</div>

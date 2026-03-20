@@ -1,6 +1,6 @@
 # Fortschritt — MUEGGE Workshop-Prasentation
 
-## Status: v3 live auf Vercel
+## Status: v9 lokal fertig, noch nicht gepusht
 
 ## Live-URL
 https://slidesmuegge.vercel.app/muegge-workshop.html
@@ -56,6 +56,21 @@ https://github.com/philipp-ekstrand/praesentation-muegge (public)
    - GitHub-Repo: praesentation-muegge (public)
    - Vercel Free Tier: Auto-Deploy bei Push auf main
    - Live verifiziert via Playwright
+
+### Session 5 (2026-03-20)
+
+9. **v9 — Inhaltlicher Review + Zwei Versionen**
+   - **Zwei Dateien:** `muegge-workshop.html` (V1) + `muegge-workshop-v2.html` (V2)
+   - **V1 (15 Slides):** Nur Sanity-Relaunch, Elementor-Vision + Roadmap entfernt
+   - **V2 (17 Slides):** Beide Visionen, getauscht (Sanity = Vision 1/Empfohlen, Elementor = Vision 2/Fallback)
+   - **Neue Performance & SEO Slide:** LCP/FCP-Boxen + SEO-Metriken (PROCME-Referenz-Pattern)
+   - **3-Wege-Benchmark:** Fricke & Mallah (microwaveheating.net) als 3. Spalte hinzugefugt
+   - **Vision-Badges:** "Unsere Empfehlung" (V1) / "Vision 1 — Empfohlen" (V2)
+   - **Module-Detail Best-in-Class:** Sticky CTA, DSGVO-konform, AI-Content, Messe-ROI, Zukunftssicherheit
+   - **Roadmap:** Timeline-Schatzungen pro Phase, Quick-Wins-Callout
+   - **Zielwerte:** +2 KPIs (Conversion Rate, Identifizierte Firmen)
+   - **Offene Fragen V1:** "Welche Module haben die hochste Prioritat?" statt "Relaunch oder Optimierung?"
+   - Assessment-Slide: "Das lauft schon gut" statt "Das ist vorhanden", Metrik-Karten reduziert
 
 ## Offene Punkte
 - SVG-Visualisierungen (Funnel-Diagramm, Tabellen-Indikatoren) noch nicht implementiert

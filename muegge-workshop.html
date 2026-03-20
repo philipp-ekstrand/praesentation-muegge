@@ -102,7 +102,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
   text-align: center; line-height: 1.12; letter-spacing: -0.025em; margin-bottom: 8px;
 }
 .s-headline .accent {
-  background: linear-gradient(135deg, #1A3A5C 0%, var(--primary) 100%);
+  background: linear-gradient(45deg, #162B45 0%, #0A1523 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .s-subtitle {
@@ -131,7 +131,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
   box-shadow: 0 0 8px rgba(0,212,255,0.3);
 }
 .fb-hint { font-size: 12px; color: var(--text-muted); font-weight: 400; }
-.fb-logo { font-size: 22px; font-weight: 900; color: var(--text); letter-spacing: -0.03em; margin-left: 24px; }
+.fb-logo { display: flex; align-items: center; margin-left: 24px; }
 
 /* ===== NAV ARROWS ===== */
 .nav-arrow {
@@ -185,7 +185,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
 .image-box__image-icon { display: none; }
 .image-box__icon {
   width: 52px; height: 52px; border-radius: 16px;
-  background: var(--primary); display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(45deg, #162B45, #0A1523); display: flex; align-items: center; justify-content: center;
   margin-bottom: 10px; flex-shrink: 0;
 }
 .image-box__icon svg { width: 24px; height: 24px; stroke: #FFFFFF; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -223,7 +223,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; font-family: var(--fon
 }
 .image-box--glass .image-box__title { color: var(--white); }
 .image-box--glass .image-box__desc { color: rgba(255,255,255,0.7); }
-.image-box--glass .image-box__icon { background: rgba(0,212,255,0.3); }
+.image-box--glass .image-box__icon { background: linear-gradient(45deg, #162B45, #0A1523); }
 
 /* ===== GRIDS ===== */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; width: 100%; }
@@ -286,7 +286,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
   background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 14px;
 }
 .scope-item__icon {
-  width: 36px; height: 36px; border-radius: 10px; background: var(--primary);
+  width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(45deg, #162B45, #0A1523);
   display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .scope-item__icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
@@ -315,8 +315,8 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 
 /* ===== QUESTIONS ===== */
 .q-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
-.q-block { display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: linear-gradient(135deg, var(--dark-bg) 0%, #132844 50%, var(--dark-bg) 100%); border: 1px solid rgba(0,212,255,0.12); border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.25s ease, box-shadow 0.25s ease; }
-.q-num { font-size: clamp(22px, 2vw, 30px); font-weight: 800; color: var(--primary); min-width: 32px; }
+.q-block { display: flex; align-items: center; gap: 16px; padding: 18px 24px; background: linear-gradient(45deg, var(--dark-bg) 0%, #132844 50%, var(--dark-bg) 100%); border: 1px solid rgba(0,212,255,0.12); border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); transition: transform 0.25s ease, box-shadow 0.25s ease; }
+.q-num { font-size: clamp(22px, 2vw, 30px); font-weight: 800; color: #FFFFFF; min-width: 32px; }
 .q-text { font-size: clamp(16px, 1.3vw, 19px); font-weight: 600; color: var(--white); }
 
 /* ===== STEPS ===== */
@@ -348,7 +348,7 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 
 /* ===== FORMULA ROW ===== */
 .formula-row { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 40px; flex-wrap: wrap; }
-.formula-chip { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 999px; border: 1.5px solid var(--border-card); font-size: clamp(18px, 1.5vw, 22px); font-weight: 600; color: var(--text); background: var(--white); }
+.formula-chip { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border-radius: 999px; border: 2px solid var(--border-card); font-size: clamp(18px, 1.5vw, 22px); font-weight: 600; color: var(--text); background: var(--white); }
 .formula-chip--filled { background: var(--dark-bg); color: var(--primary); border-color: var(--dark-bg); box-shadow: 0 4px 16px rgba(0,212,255,0.2); }
 .formula-op { font-size: 20px; font-weight: 300; color: var(--text-muted); }
 
@@ -401,8 +401,8 @@ table.kpi tbody tr:nth-child(even) { background: var(--bg-card); }
 [data-slide="3"] .metric-val { color: var(--white); }
 [data-slide="3"] .metric-label { color: rgba(255,255,255,0.65); }
 [data-slide="3"] .panel { background: rgba(0,212,255,0.05); border: 1px solid rgba(0,212,255,0.15); }
-[data-slide="3"] .panel__icon { background: rgba(0,212,255,0.12); }
-[data-slide="3"] .panel__icon svg { stroke: var(--primary) !important; }
+[data-slide="3"] .panel__icon { background: linear-gradient(45deg, #162B45, #0A1523); }
+[data-slide="3"] .panel__icon svg { stroke: #FFFFFF !important; }
 [data-slide="3"] .panel li { font-size: clamp(16px, 1.3vw, 18px); }
 [data-slide="3"] .panel-head { font-size: clamp(18px, 1.5vw, 22px); }
 
@@ -435,7 +435,7 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
 }
 .image-box--noah .image-box__title { color: var(--text); font-size: clamp(14px, 1.2vw, 17px); }
 .image-box--noah .image-box__desc { color: var(--text-sub); font-size: clamp(11px, 0.85vw, 13px); }
-.image-box--noah .image-box__icon { background: var(--primary); margin-bottom: 6px; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+.image-box--noah .image-box__icon { background: linear-gradient(45deg, #162B45, #0A1523); margin-bottom: 6px; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
 .image-box--noah .image-box__icon svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ===== SLIDES 9-10: ENHANCED BENEFITS ===== */
@@ -501,7 +501,7 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
 [data-slide="1"] .s-badge { border-color: var(--primary); color: var(--primary); }
 [data-slide="1"] .s-headline { color: var(--white); }
 [data-slide="1"] .s-headline .accent {
-  background: linear-gradient(135deg, var(--primary-lighter) 0%, var(--primary) 100%);
+  background: linear-gradient(45deg, #2A4A6B 0%, #1A3A5C 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 [data-slide="1"] .formula-chip { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: var(--white); }
@@ -549,6 +549,21 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
   .slide.prev { transform: none !important; }
 }
 
+/* ===== V8 FIXES: OVERFLOW, CONTAINER, SIZING ===== */
+[data-slide="5"], [data-slide="6"], [data-slide="9"], [data-slide="10"] {
+  justify-content: flex-start;
+}
+[data-slide="9"] .s-content, [data-slide="10"] .s-content {
+  max-width: 1350px;
+}
+[data-slide="9"] .image-box__desc, [data-slide="10"] .image-box__desc {
+  font-size: clamp(13px, 1vw, 15px);
+}
+[data-slide="7"] .s-headline { max-width: 60%; }
+[data-slide="7"] .image-box__image, [data-slide="8"] .image-box__image {
+  aspect-ratio: 3/2;
+}
+
 /* ===== PRINT ===== */
 @media print {
   html, body { overflow: visible; height: auto; }
@@ -569,13 +584,13 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
       <div class="cover-tagline">greyt ideas today &mdash; greyt impact tomorrow</div>
       <div class="cover-headline">Website-Analyse &amp;<br>Optimierungskonzept</div>
       <div class="cover-logos">
-        <div class="cover-logo-pill">MUEGGE Group</div>
+        <div class="cover-logo-pill"><img src="https://muegge-group.com/wp-content/uploads/2023/09/muegge-logo-white.png" alt="MUEGGE Group" style="height:28px;"></div>
         <div class="cover-logo-x">&times;</div>
-        <div class="cover-logo-pill">greyt.</div>
+        <div class="cover-logo-pill"><img src="https://cdn.prod.website-files.com/64cb639d8700d259e78014cd/64d0e31432b7c9b7764e716f_default-logo.png" alt="greyt." style="height:24px;"></div>
       </div>
     </div>
     <div class="cover-start">Klicken zum Starten</div>
-    <div class="cover-g">g</div>
+    <div class="cover-g"><img src="https://cdn.prod.website-files.com/64cb639d8700d259e78014cd/64d0e31432b7c9b7764e716f_default-logo.png" alt="greyt." style="height:24px;opacity:0.4;"></div>
   </div>
 
   <!-- === SLIDE 2: VALUE PROPOSITION === -->
@@ -743,7 +758,7 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     <div class="s-badge" data-anim>Kernprobleme</div>
     <div class="s-headline" data-anim style="--d:0.1s">Die 5 gr&ouml;&szlig;ten <span class="accent">Hebel</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Hier liegt das gr&ouml;&szlig;te Potenzial f&uuml;r Ihre Website</div>
-    <div class="s-content" style="justify-content:center;">
+    <div class="s-content">
       <div class="grid-3" style="margin-bottom:14px;">
         <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="analytics">
           <div class="image-box__image"><svg class="image-box__image-icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg><div class="image-box__image-num">01</div></div>
@@ -923,7 +938,7 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     <div class="s-badge" data-anim>Module im Detail</div>
     <div class="s-headline" data-anim style="--d:0.1s">Von der Nutzerf&uuml;hrung <span class="accent">bis zum Lead</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Module 1&ndash;3: Nutzerf&uuml;hrung, Produktfinder &amp; Lead Intelligence</div>
-    <div class="s-content" style="justify-content:center;">
+    <div class="s-content">
       <div class="grid-3">
         <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="ui">
           <div class="image-box__image"><div class="image-box__image-num">M1</div></div>
@@ -994,7 +1009,7 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     <div class="s-badge" data-anim>Module im Detail</div>
     <div class="s-headline" data-anim style="--d:0.1s">Content, Messen <span class="accent">&amp; Technik</span></div>
     <div class="s-subtitle" data-anim style="--d:0.15s">Module 4&ndash;6: Content-Engine, Messe-Integration &amp; Tech-Fundament</div>
-    <div class="s-content" style="justify-content:center;">
+    <div class="s-content">
       <div class="grid-3">
         <div class="image-box" data-anim="scale" style="--d:0.2s" data-img="content">
           <div class="image-box__image"><div class="image-box__image-num">M4</div></div>
@@ -1102,19 +1117,19 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
       </div>
       <div class="roadmap-body" data-anim style="--d:0.35s">
         <div class="roadmap-row-label">Fokus</div>
-        <div class="roadmap-cell"><ul><li>Informationsarchitektur</li><li>Sitemap &amp; Wireframes</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Sanity CMS + Next.js</li><li>ERP-Integration</li><li>&Uuml;bersetzungs-Automation</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Migration &amp; Redirects</li><li>QA &amp; Go-Live</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Informationsarchitektur</li><li>Sitemap &amp; Wireframes</li><li>Design &amp; UX-Konzept</li><li>Content-Strategie</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Sanity CMS + Next.js</li><li>ERP-Integration (MyFactory)</li><li>&Uuml;bersetzungs-Automation</li><li>Content-Produktion</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Migration &amp; Redirects</li><li>QA &amp; Soft-Launch</li><li>Monitoring &amp; Optimierung</li></ul></div>
 
         <div class="roadmap-row-label">Ma&szlig;nahmen</div>
-        <div class="roadmap-cell"><ul><li>Mega-Men&uuml;-Struktur</li><li>SEO-Keyword-Strategie</li><li>Content-Planung</li></ul></div>
-        <div class="roadmap-cell"><ul><li>MyFactory API-Anbindung</li><li>Produktfinder &amp; Konfigurator</li><li>Download-Center</li><li>Schema.org + llms.txt</li></ul></div>
-        <div class="roadmap-cell"><ul><li>301-Redirects</li><li>Performance-Tests</li><li>6 Sprachversionen live</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Branchen-Personas &amp; User Journeys</li><li>Moodboard, Styleguide &amp; Prototyp</li><li>Mega-Men&uuml;-Struktur definieren</li><li>SEO-Keyword-Mapping nach Branche</li><li>Redaktionskalender &amp; Content-Plan</li></ul></div>
+        <div class="roadmap-cell"><ul><li>MyFactory API-Anbindung</li><li>Produktfinder &amp; Konfigurator</li><li>Download-Center &amp; Gated Content</li><li>Blog &amp; Branchen-Landing-Pages</li><li>Newsletter-Setup (segmentiert)</li><li>Schema.org + llms.txt</li></ul></div>
+        <div class="roadmap-cell"><ul><li>301-Redirects &amp; SEO-Migration</li><li>Performance- &amp; Accessibility-Tests</li><li>6 Sprachversionen live</li><li>Lead-Scoring &amp; CRM-Integration</li><li>Iterative Optimierung (3 Monate)</li></ul></div>
 
         <div class="roadmap-row-label">Ergebnis</div>
-        <div class="roadmap-cell"><ul><li>Klare Roadmap steht</li><li>Content-Pipeline l&auml;uft</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Tech-Plattform bereit</li><li>Erste Module testbar</li></ul></div>
-        <div class="roadmap-cell"><ul><li>Digitaler Vertriebsmitarbeiter live</li><li>Vollst&auml;ndiger Lead-Funnel</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Freigegebenes Design-System</li><li>Content-Pipeline l&auml;uft</li><li>Klare Roadmap &amp; Budget</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Tech-Plattform bereit</li><li>Erste Module testbar</li><li>Content f&uuml;r Top-5-Branchen steht</li></ul></div>
+        <div class="roadmap-cell"><ul><li>Digitaler Vertriebsmitarbeiter live</li><li>Vollst&auml;ndiger Lead-Funnel</li><li>Messbare KPIs ab Tag 1</li></ul></div>
       </div>
     </div>
   </div>
@@ -1122,11 +1137,11 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
   <!-- === SLIDE 14: ZIELWERTE === -->
   <div class="slide" data-slide="13">
     <div class="s-badge" data-anim>Messbare Ergebnisse</div>
-    <div class="s-headline" data-anim style="--d:0.1s"><span class="accent">Zielwerte</span></div>
-    <div class="s-subtitle" data-anim style="--d:0.15s">Erwartete KPIs nach Umsetzung</div>
+    <div class="s-headline" data-anim style="--d:0.1s">Angestrebte <span class="accent">Zielwerte</span></div>
+    <div class="s-subtitle" data-anim style="--d:0.15s">Orientierungswerte &mdash; abh&auml;ngig von Umsetzungsumfang und Marktbedingungen</div>
     <div class="s-content" style="justify-content:center;">
       <table class="kpi" data-anim style="--d:0.25s">
-        <thead><tr><th>KPI</th><th>Heute</th><th>6 Monate</th><th>12 Monate</th></tr></thead>
+        <thead><tr><th>KPI</th><th>Heute</th><th>Horizont 6 Mo.</th><th>Horizont 12 Mo.</th></tr></thead>
         <tbody>
           <tr><td>Unique Visitors / Monat</td><td class="kpi-now">~200</td><td class="kpi-6m">1.000+</td><td class="kpi-12m">2.500+</td></tr>
           <tr><td>Website-Leads / Monat</td><td class="kpi-now">0</td><td class="kpi-6m">5&ndash;10</td><td class="kpi-12m">15&ndash;25</td></tr>
@@ -1135,6 +1150,7 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
           <tr><td>AI-Auffindbarkeit</td><td class="kpi-now">2% Traffic</td><td class="kpi-6m">Erw&auml;hnt</td><td class="kpi-12m">Konsistent genannt</td></tr>
         </tbody>
       </table>
+      <div class="hint" data-anim style="--d:0.35s">* Richtwerte auf Basis vergleichbarer B2B-Projekte. Keine Garantie &mdash; tats&auml;chliche Ergebnisse h&auml;ngen von Umsetzungsumfang, Content-Qualit&auml;t und Marktbedingungen ab.</div>
     </div>
   </div>
 
@@ -1199,7 +1215,7 @@ table.cmp .feat-icon { stroke: var(--dark-bg); }
     <div class="fb-progress-track"><div class="fb-progress-fill" id="fbFill" style="width:7.14%"></div></div>
   </div>
   <div class="fb-hint">Pfeiltasten zur Navigation</div>
-  <div class="fb-logo">greyt.</div>
+  <div class="fb-logo"><img src="https://cdn.prod.website-files.com/64cb639d8700d259e78014cd/64d0e31432b7c9b7764e716f_default-logo.png" alt="greyt." style="height:20px;filter:brightness(0);"></div>
 </div>
 
 <!-- NAV ARROWS -->
